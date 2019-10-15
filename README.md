@@ -1,4 +1,4 @@
-# vue-stackoverflow-notificator
+# StackoverNotifier
 
 ## Project setup
 ```
