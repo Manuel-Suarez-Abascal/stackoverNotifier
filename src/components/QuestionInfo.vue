@@ -49,7 +49,7 @@ export default {
   data(){
     return {
       details: [],
-      tag: `phaser-framework`,
+      tag: `jquery`,
       newTag: ''
     }
   },
@@ -58,19 +58,21 @@ export default {
   },
   methods: {
     getTag(){
-      axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
-        this.details = response.data.items[0]
+     let pollingAPI = axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
+          this.details = response.data.items[0]
         // console.log an error if get() method is unsuccessful
-      }).catch(err => {
-        console.log(err)
-      })
+        }).catch(err => {
+          console.log(err)
+        })
+      setInterval(() => {
+        pollingAPI
+      }, 10000);
     },
     updateTag() {
       this.tag = this.newTag
       this.getTag();
     },
   },
-
 }
 </script>
 
