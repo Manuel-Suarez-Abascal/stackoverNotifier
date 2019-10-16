@@ -1,7 +1,6 @@
 <template>
   <div class="question container-fluid">
-    <h1 class="my-3"
-    >
+    <h1 class="my-3">
     Last "<span class="question_tag">{{ tag }}</span>" Question Details
     </h1>
     <b-form
@@ -50,7 +49,8 @@ export default {
     return {
       details: [],
       tag: `jquery`,
-      newTag: ''
+      newTag: '',
+      notificationMessage: null
     }
   },
   mounted() {
@@ -59,6 +59,7 @@ export default {
   methods: {
     getTag(){
       setInterval(() => {
+        this.sendNotification()
         axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
           this.details = response.data.items[0]
         // console.log an error if get() method is unsuccessful
@@ -71,7 +72,18 @@ export default {
       this.tag = this.newTag
       this.getTag()
     },
-    
+    sendNotification() {
+      if ('Notification' in window) {
+        let ask = Notification.requestPermission()
+        ask.then( permission => {
+          if ( permission === 'granted') {
+            this.notificationMessage = new Notification('Title', {
+              body: 'Test message'
+            })
+          }
+        })
+      }
+    }
   },
 }
 </script>
