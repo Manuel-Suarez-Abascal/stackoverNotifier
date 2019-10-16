@@ -65,12 +65,13 @@ export default {
         }).catch(err => {
           console.log(err)
         })
-      }, 10000);
+      }, 70000);
     },
     updateTag() {
       this.tag = this.newTag
-      this.getTag();
+      this.getTag()
     },
+    
   },
 }
 </script>
