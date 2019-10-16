@@ -59,7 +59,6 @@ export default {
   methods: {
     getTag(){
       setInterval(() => {
-        this.sendNotification()
         axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
           this.details = response.data.items[0]
         // console.log an error if get() method is unsuccessful
