@@ -67,20 +67,25 @@ export default {
   mounted() {
     this.getTag()
   },
+ 
   methods: {
     getTag(){
       setInterval(() => {
-        axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
-          this.details = response.data.items[0]
-        // console.log an error if get() method is unsuccessful
-        }).catch(err => {
-          console.log(err)
-        })
+        this.getQuestion()
       }, 70000);
     },
     updateTag() {
       this.tag = this.newTag
-      this.getTag()
+      this.getQuestion()
+      this.newTag = ''
+    },
+    getQuestion(){
+      axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
+        this.details = response.data.items[0]
+      // console.log an error if get() method is unsuccessful
+      }).catch(err => {
+        console.log(err)
+      })
     },
     sendNotification() {
       if ('Notification' in window) {
@@ -94,6 +99,9 @@ export default {
         })
       }
     }
+  },
+  created(){
+    this.getQuestion()
   },
 }
 </script>
