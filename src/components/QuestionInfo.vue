@@ -1,41 +1,52 @@
 <template>
-  <div class="question container-fluid">
-    <h1 class="my-3">
-    Last "<span class="question_tag">{{ tag }}</span>" Question Details
-    </h1>
-    <b-form
-      class="my-4" 
-      @submit.prevent="updateTag"
-    >
-      <b-form-input
-        class="w-auto"
-        placeholder="Enter a stackoverflow tag"
-        type="text"
-        v-model="newTag"
+  <div class="question container-fluid d-flex ">
+    <div class="question_card align-self-center col-12 col-md-8 border-gray p-4 mx-auto  shadow rounded">
+      <div class="question_tag my-3">
+        <span class="question_tag_parameter">Tag: </span>
+        <span class="question_tag_value px-3 py-1 ml-2">{{ tag }}</span>
+      </div>
+      <b-form
+        class="my-4" 
+        @submit.prevent="updateTag"
       >
-      </b-form-input>
-    </b-form>
-    <div class="question_title my-2">
-      <strong>Title: </strong> <span>{{ details.title }}</span>
-    </div>
-    <div class="question_status my-2">
-      <strong>Question answered: </strong><span>{{ details.is_answered }}</span>
-    </div>
-    <div class="question_views my-2">
-      <strong>Views: </strong><span>{{ details.view_count }}</span>
-    </div>
-    <div class="question_answers my-2">
-      <strong>Answers Count: </strong><span>{{ details.answer_count }}</span>
-    </div>
-    <div class="question_link my-2">
-      <strong>Check question: </strong>
-      <a :href="details.link"
-      :title="details.link"
-      rel="noopener"
-      target="_blank"
-      >
-        Here
-      </a>
+        <b-form-input
+          class="w-auto"
+          placeholder="Enter a stackoverflow tag..."
+          type="text"
+          v-model="newTag"
+        >
+        </b-form-input>
+      </b-form>
+      <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
+        <div class=" card-title">Question: </div>
+        <h3 class="font-weight-bold">{{ details.title }}</h3>
+      </div>
+      <div class="row">
+        <div class="question_status m-4">
+          <div class="question_status_value bg-dark p-4 rounded-circle text-center">{{ details.is_answered }}</div>
+          <div class="question_status_parameter mt-4 text-center">Answered</div>
+        </div>
+        <div class="question_views m-4">
+          <div class="question_views_value bg-dark p-4 rounded-circle text-center">{{ details.view_count }}</div>
+          <div class="question_views_parameter mt-4 text-center">Views</div>
+        </div>
+        <div class="question_answers m-4">
+          <div class="question_answers_value bg-dark p-4 rounded-circle text-center">{{ details.answer_count }}</div>
+          <div class="question_answers_parameter mt-4 text-center">Answers</div>
+        </div>
+      </div>
+      <div class="question_link ml-1 my-3">
+        <a 
+          class="text-success"
+          :href="details.link"
+          :title="details.link"
+          rel="noopener"
+          target="_blank"
+        >
+          Go to answer question 
+          <span>&rarr;</span>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -48,7 +59,7 @@ export default {
   data(){
     return {
       details: [],
-      tag: `jquery`,
+      tag: `phaser`,
       newTag: '',
       notificationMessage: null
     }
@@ -89,8 +100,34 @@ export default {
 
 <style scoped lang="scss">
 .question {
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+  height: 100%;
+  color: #fff;
+  &_card {
+    background: #0F2027;  
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+  }
   &_tag {
-    text-transform: capitalize;
+    &_value {
+      background: #808080;
+      color: rgb(216, 216, 216);
+    }
+  }
+  &_link {
+    & span {
+      position: relative;
+      left: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      & span {
+        left: 5px;
+        transition: all 0.4s ease-in-out;
+      }
+    }
   }
 }
 </style>
