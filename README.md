@@ -45,6 +45,10 @@ npm run serve
 ```
 It'll open a local development environment server at ```http://localhost:8080/```
 
+### Chrome Notification Settings
+
+- Make sure to have your **[Chrome's notification enabled](https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DDesktop&hl=en)**.
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
