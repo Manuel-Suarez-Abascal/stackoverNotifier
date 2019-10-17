@@ -62,36 +62,39 @@ export default {
   name: 'QuestionInfo',
   data(){
     return {
-      lastQuestion: [],
+      lastQuestion: '',
       details: [],
       tag: `javascript`,
       newTag: '',
       notificationMessage: null
     }
   },
+  mounted(){
+    this.getTag()
+  },
   methods: {
-    getTag(){
-      setInterval(() => {
-        this.getQuestion()
-      }, 70000);
-    },
     updateTag() {
       this.tag = this.newTag
       this.getQuestion()
       this.newTag = ''
     },
+    getTag(){
+      setInterval(() => {
+        this.getQuestion()
+      }, 70000);
+    },
     getQuestion(){
-      axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
+      axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((`).then(response => {
         this.details = response.data.items[0]
         console.log('function ran!')
         if(this.lastQuestion !== this.details.title){
           this.sendNotification()
+          this.lastQuestion = this.details.title
         }
         // console.log an error if get() method is unsuccessful
       }).catch(err => {
         console.log(err)
       })
-      this.lastQuestion = this.details.title
     },
     sendNotification() {
       if ('Notification' in window) {
