@@ -34,6 +34,10 @@
           <div class="question_answers_value bg-dark p-4 rounded-circle text-center">{{ details.answer_count }}</div>
           <div class="question_answers_parameter mt-4 text-center">Answers</div>
         </div>
+        <div class="question_score m-4">
+          <div class="question_score_value bg-dark p-4 rounded-circle text-center">{{ details.score }}</div>
+          <div class="question_score_parameter mt-4 text-center">Score</div>
+        </div>
       </div>
       <div class="question_link ml-1 my-3">
         <a 
@@ -58,16 +62,13 @@ export default {
   name: 'QuestionInfo',
   data(){
     return {
+      lastQuestion: [],
       details: [],
-      tag: `phaser`,
+      tag: `javascript`,
       newTag: '',
       notificationMessage: null
     }
   },
-  mounted() {
-    this.getTag()
-  },
- 
   methods: {
     getTag(){
       setInterval(() => {
@@ -82,18 +83,23 @@ export default {
     getQuestion(){
       axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow`).then(response => {
         this.details = response.data.items[0]
-      // console.log an error if get() method is unsuccessful
+        console.log('function ran!')
+        if(this.lastQuestion !== this.details.title){
+          this.sendNotification()
+        }
+        // console.log an error if get() method is unsuccessful
       }).catch(err => {
         console.log(err)
       })
+      this.lastQuestion = this.details.title
     },
     sendNotification() {
       if ('Notification' in window) {
         let ask = Notification.requestPermission()
         ask.then( permission => {
           if ( permission === 'granted') {
-            this.notificationMessage = new Notification('Title', {
-              body: 'Test message'
+            this.notificationMessage = new Notification(`Here there!`, {
+              body: `A new question has been asked!`
             })
           }
         })
