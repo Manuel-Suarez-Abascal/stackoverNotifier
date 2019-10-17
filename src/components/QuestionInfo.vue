@@ -62,9 +62,9 @@ export default {
   name: 'QuestionInfo',
   data(){
     return {
-      lastQuestion: '',
+      lastQuestion: [],
       details: [],
-      tag: `javascript`,
+      tag: `phaser-framework`,
       newTag: '',
       notificationMessage: null
     }
@@ -81,12 +81,11 @@ export default {
     getTag(){
       setInterval(() => {
         this.getQuestion()
-      }, 70000);
+      }, 65000);
     },
     getQuestion(){
       axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((`).then(response => {
         this.details = response.data.items[0]
-        console.log('function ran!')
         if(this.lastQuestion !== this.details.title){
           this.sendNotification()
           this.lastQuestion = this.details.title
