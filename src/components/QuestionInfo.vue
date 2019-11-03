@@ -1,8 +1,8 @@
 <template>
-  <div class="question container-fluid d-flex ">
+  <div class="question container-fluid d-flex">
     <div class="question_card align-self-center col-12 col-md-8 border-gray p-4 mx-auto  shadow rounded">
       <div class="question_tag my-3">
-        <span class="question_tag_parameter">Tag: </span>
+        <span class="question_tag_parameter">Tag:</span>
         <span class="question_tag_value px-3 py-1 ml-2">{{ tag }}</span>
       </div>
       <b-form
@@ -10,7 +10,7 @@
         @submit.prevent="updateTag"
       >
         <b-form-input
-          class="w-auto"
+          class="w-50"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
@@ -19,7 +19,7 @@
       </b-form>
       <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
         <div class=" card-title">Question: </div>
-        <h3 class="font-weight-bold">{{ details.title }}</h3>
+        <h3 class="font-weight-bold">{{ details.title }}?</h3>
       </div>
       <div class="row">
         <div class="question_status m-4">
@@ -81,7 +81,7 @@ export default {
     getTag(){
       setInterval(() => {
         this.getQuestion()
-      }, 65000);
+      }, 61000);
     },
     getQuestion(){
       axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((`).then(response => {
@@ -90,7 +90,6 @@ export default {
           this.sendNotification()
           this.lastQuestion = this.details.title
         }
-        // console.log an error if get() method is unsuccessful
       }).catch(err => {
         console.log(err)
       })
