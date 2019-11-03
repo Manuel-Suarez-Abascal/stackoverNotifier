@@ -19,7 +19,7 @@
       </b-form>
       <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
         <div class=" card-title">Question: </div>
-        <h3 class="font-weight-bold">{{ details.title }}?</h3>
+        <h3 class="font-weight-bold">{{ details.title }}</h3>
       </div>
       <div class="row">
         <div class="question_status m-4">
