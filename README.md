@@ -4,14 +4,16 @@ Check out the **[project demo](https://manuel-suarez-abascal.github.io/stackover
 
 # Project Setup
 
-=================
+======================
 
 # Dependencies
 
 Make sure to have all these dependencies installed in your local machine:
 
-- [Node.js](https://nodejs.org/en/) - v10.15.3
-- [Vue Cli](https://cli.vuejs.org/guide/installation.html) - v3.5.5
+- [Node.js](https://nodejs.org/en/) - v12.18.4
+- [NPM](https://www.npmjs.com/) - v6.10 (comes installed with `Node.js`)
+- [Vue CLI](https://cli.vuejs.org/guide/installation.html) - v4.5.6
+
 
 # API key
 
