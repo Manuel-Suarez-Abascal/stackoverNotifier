@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "cypres:open": "npx cypress open"
+    "cypress:open": "npx cypress open"
   },
   "dependencies": {
     "axios": "^0.19.2",
