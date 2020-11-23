@@ -3,7 +3,11 @@
     <div class="question_card align-self-center col-12 col-md-8 border-gray p-4 mx-auto  shadow rounded">
       <div class="question_tag my-3">
         <span class="question_tag_parameter">Tag:</span>
-        <span class="question_tag_value px-3 py-1 ml-2">{{ tag }}</span>
+        <span 
+          class="question_tag_value px-3 py-1 ml-2"
+          data-test="question_tag_value">
+            {{ tag }}
+        </span>
       </div>
       <b-form
         class="my-4" 
@@ -11,6 +15,7 @@
       >
         <b-form-input
           class="w-50"
+          data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
@@ -18,32 +23,58 @@
         </b-form-input>
       </b-form>
       <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
-        <div class=" card-title">Question: </div>
+        <div 
+          class="card-title"
+          data-test="question_title"
+        >
+          Question: 
+        </div>
         <h3 class="font-weight-bold">{{ details.title }}</h3>
       </div>
       <div class="row">
         <div class="question_status m-4">
           <div class="question_status_value bg-dark p-4 rounded-circle text-center">{{ details.is_answered }}</div>
-          <div class="question_status_parameter mt-4 text-center">Answered</div>
+          <div 
+            class="question_status_parameter mt-4 text-center"
+            data-test="question_answered"
+          >
+            Answered
+          </div>
         </div>
         <div class="question_views m-4">
           <div class="question_views_value bg-dark p-4 rounded-circle text-center">{{ details.view_count }}</div>
-          <div class="question_views_parameter mt-4 text-center">Views</div>
+          <div 
+            class="question_views_parameter mt-4 text-center"
+            data-test="question_views"
+          >
+            Views
+          </div>
         </div>
         <div class="question_answers m-4">
           <div class="question_answers_value bg-dark p-4 rounded-circle text-center">{{ details.answer_count }}</div>
-          <div class="question_answers_parameter mt-4 text-center">Answers</div>
+          <div 
+            class="question_answers_parameter mt-4 text-center"
+            data-test="question_answers"
+          >
+            Answers
+          </div>
         </div>
         <div class="question_score m-4">
           <div class="question_score_value bg-dark p-4 rounded-circle text-center">{{ details.score }}</div>
-          <div class="question_score_parameter mt-4 text-center">Score</div>
+          <div 
+            class="question_score_parameter mt-4 text-center"
+            data-test="question_score"
+          >
+            Score
+          </div>
         </div>
       </div>
       <div class="question_link ml-1 my-3">
         <a 
-          class="text-success"
           :href="details.link"
           :title="details.link"
+          class="text-success"
+          data-test="question_link"
           rel="noopener"
           target="_blank"
         >
@@ -64,7 +95,7 @@ export default {
     return {
       lastQuestion: [],
       details: [],
-      tag: `phaser-framework`,
+      tag: `javascript`,
       newTag: '',
       notificationMessage: null
     }
