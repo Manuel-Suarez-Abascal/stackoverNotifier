@@ -9,19 +9,18 @@
             {{ tag }}
         </span>
       </div>
-      <b-form
+      <form
         class="my-4" 
         @submit.prevent="updateTag"
       >
-        <b-form-input
+        <input
           class="w-50"
           data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
-        >
-        </b-form-input>
-      </b-form>
+        />
+      </form>
       <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
         <div 
           class="card-title"
