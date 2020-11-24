@@ -1,9 +1,16 @@
 /* eslint-disable no-undef */
 describe('Fetch Questions from Stackoverflow', () => {
     before(() => {
-        cy.visit('http://localhost:8080/');
+        cy.visit('/');
+       
+        cy.request({
+            url: 'https://api.stackexchange.com/2.2/questions?order=desc&sort=creation&tagged=javascript&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ(('
+        }).then(res => {
+            const responseObject = res.body.items[0];
+            expect(res.status).to.be.eq(200);
+        });
     })
-
+    
     it('tag loads correctly on initial load', () => {
         cy.get('[data-test="question_tag_value"]')
             .should('exist')
