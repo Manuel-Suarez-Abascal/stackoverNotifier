@@ -73,5 +73,11 @@ npm run test
 npm run lint
 ```
 
+### Run `e2e` assertion with Cypress.io
+
+```
+npm run cypress:open
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
