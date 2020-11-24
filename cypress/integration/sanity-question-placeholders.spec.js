@@ -6,8 +6,23 @@ describe('Fetch Questions from Stackoverflow', () => {
         cy.request({
             url: 'https://api.stackexchange.com/2.2/questions?order=desc&sort=creation&tagged=javascript&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ(('
         }).then(res => {
-            const responseObject = res.body.items[0];
             expect(res.status).to.be.eq(200);
+
+            const questionObject = res.body.items[0];
+            console.log(questionObject)
+            const { title, is_answered, view_count, score } = questionObject;
+
+            cy.log(`Asserting the fetched response object:
+                Title: ${title},
+                Answered: ${is_answered},
+                Views: ${view_count},
+                Score: ${score}
+            `);
+
+            cy.get('[data-test="question_title_value"]').should('contain', `${title}`);
+            cy.get('[data-test="question_status_value"]').should('contain', `${is_answered}`);
+            cy.get('[data-test="question_views_value"]').should('contain', `${view_count}`);
+            cy.get('[data-test="question_score_value"]').should('contain', `${score}`);
         });
     })
     

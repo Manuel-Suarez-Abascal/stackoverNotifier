@@ -29,11 +29,21 @@
         >
           Question: 
         </div>
-        <h3 class="font-weight-bold">{{ details.title }}</h3>
+        <h3 
+          class="font-weight-bold"
+          data-test="question_title_value"
+        > 
+          {{ details.title }}
+        </h3>
       </div>
       <div class="row">
         <div class="question_status m-4">
-          <div class="question_status_value bg-dark p-4 rounded-circle text-center">{{ details.is_answered }}</div>
+          <div 
+            class="question_status_value bg-dark p-4 rounded-circle text-center"
+            data-test="question_status_value"
+          >
+            {{ details.is_answered }}
+          </div>
           <div 
             class="question_status_parameter mt-4 text-center"
             data-test="question_answered"
@@ -42,7 +52,12 @@
           </div>
         </div>
         <div class="question_views m-4">
-          <div class="question_views_value bg-dark p-4 rounded-circle text-center">{{ details.view_count }}</div>
+          <div 
+            class="question_views_value bg-dark p-4 rounded-circle text-center"
+            data-test="question_views_value"
+          >
+            {{ details.view_count }}
+          </div>
           <div 
             class="question_views_parameter mt-4 text-center"
             data-test="question_views"
@@ -60,7 +75,12 @@
           </div>
         </div>
         <div class="question_score m-4">
-          <div class="question_score_value bg-dark p-4 rounded-circle text-center">{{ details.score }}</div>
+          <div 
+            class="question_score_value bg-dark p-4 rounded-circle text-center"
+            data-test="question_score_value"
+          >
+            {{ details.score }}
+          </div>
           <div 
             class="question_score_parameter mt-4 text-center"
             data-test="question_score"
