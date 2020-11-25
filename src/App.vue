@@ -16,7 +16,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import './styles/layout-utilities.css';
+
+* {
+  margin: 0;
+  padding: 0;
+}
 #app {
   height: 100vh;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 }
 </style>

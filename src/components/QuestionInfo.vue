@@ -1,7 +1,7 @@
 <template>
-  <div class="question container-fluid d-flex">
-    <div class="question_card align-self-center col-12 col-md-8 border-gray p-4 mx-auto  shadow rounded">
-      <div class="question_tag my-3">
+  <div class="question">
+    <div class="question_card container">
+      <div class="question_tag p-5 pb-0 pl-0 ml-5">
         <span class="question_tag_parameter">Tag:</span>
         <span 
           class="question_tag_value px-3 py-1 ml-2"
@@ -9,91 +9,90 @@
             {{ tag }}
         </span>
       </div>
-      <b-form
-        class="my-4" 
+      <form 
+        class="p-5 py-3"
         @submit.prevent="updateTag"
       >
-        <b-form-input
-          class="w-50"
+        <input
+          class="question_tag_value_input"
           data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
-        >
-        </b-form-input>
-      </b-form>
-      <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
-        <div 
-          class="card-title"
+        />
+      </form>
+      <div class="question_title p-5 pt-0 pb-3 pl-0 ml-5">
+        <div
+          class="pt-3 m-3"
           data-test="question_title"
         >
           Question: 
         </div>
-        <h3 
-          class="font-weight-bold"
+        <h2
+          class="pt-1 m-3"
           data-test="question_title_value"
         > 
           {{ details.title }}
-        </h3>
+        </h2>
       </div>
-      <div class="row">
-        <div class="question_status m-4">
+      <div class="question-wrapper_details p-5 pt-0 pb-0">
+        <div class="question_status p-5 pl-0">
           <div 
-            class="question_status_value bg-dark p-4 rounded-circle text-center"
+            class="question_value_status p-4 mb-4"
             data-test="question_status_value"
           >
             {{ details.is_answered }}
           </div>
           <div 
-            class="question_status_parameter mt-4 text-center"
+            class="question_param_status"
             data-test="question_answered"
           >
             Answered
           </div>
         </div>
-        <div class="question_views m-4">
+        <div class="question_views p-5">
           <div 
-            class="question_views_value bg-dark p-4 rounded-circle text-center"
+            class="question_value_views p-4 mb-4"
             data-test="question_views_value"
           >
             {{ details.view_count }}
           </div>
           <div 
-            class="question_views_parameter mt-4 text-center"
+            class="question_param_views"
             data-test="question_views"
           >
             Views
           </div>
         </div>
-        <div class="question_answers m-4">
-          <div class="question_answers_value bg-dark p-4 rounded-circle text-center">{{ details.answer_count }}</div>
+        <div class="question_answers p-5">
+          <div class="question_value_answers p-4 mb-4">{{ details.answer_count }}</div>
           <div 
-            class="question_answers_parameter mt-4 text-center"
+            class="question_param_answers"
             data-test="question_answers"
           >
             Answers
           </div>
         </div>
-        <div class="question_score m-4">
+        <div class="question_score p-5">
           <div 
-            class="question_score_value bg-dark p-4 rounded-circle text-center"
+            class="question_value_score p-4 mb-4"
             data-test="question_score_value"
           >
             {{ details.score }}
           </div>
           <div 
-            class="question_score_parameter mt-4 text-center"
+            class="question_param_score"
             data-test="question_score"
           >
             Score
           </div>
         </div>
       </div>
-      <div class="question_link ml-1 my-3">
+      <div class="pl-5 pb-4">
         <a 
           :href="details.link"
           :title="details.link"
-          class="text-success"
+          class="question_link"
           data-test="question_link"
           rel="noopener"
           target="_blank"
@@ -166,23 +165,66 @@ export default {
 
 <style scoped lang="scss">
 .question {
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
-  height: 100%;
+  -ms-transform: translateY(-50%);
   color: #fff;
+  margin: 0;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  &_title {
+    background: #fff;
+    border-radius: 10px;
+    color: #343a40;
+    font-size: 1.3rem;
+    font-weight: 900;
+    max-width: 80%;
+  }
   &_card {
     background: #0F2027;  
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    border-radius: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   }
   &_tag {
     &_value {
       background: #808080;
+      border-radius: 10px;
       color: rgb(216, 216, 216);
+      text-align: center;
+      &_input {
+        background-clip: padding-box;
+        background-color: #fff;
+        border-radius: .25rem;
+        border: 1px solid #ced4da;
+        color: #495057;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: .375rem .75rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        width: 35%;
+          &:focus {
+          color: #495057;
+          background-color: #fff;
+          border-color: #80bdff;
+          box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+          outline: 0;
+        }
+      }
     }
   }
   &_link {
+    background-color: transparent;
+    color: #28a745;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-decoration: none;
+    &:hover {
+      color: #2d9445;
+      
+      transition: color 0.8s;
+    }
     & span {
       position: relative;
       left: 0;
@@ -193,6 +235,24 @@ export default {
         left: 5px;
         transition: all 0.4s ease-in-out;
       }
+    }
+  }
+  &_param {
+    &_status, &_views, &_answers, &_score {
+      font-size: 1.2rem;
+      font-weight: 900;
+    } 
+  }
+  &_value {
+    &_status, &_views, &_answers, &_score {
+      background: #343a40;
+      border-radius: 50%;
+    } 
+  }
+  &-wrapper {
+    &_details {
+      display: flex;
+      text-align: center;
     }
   }
 }
