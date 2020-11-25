@@ -35,7 +35,7 @@
           {{ details.title }}
         </h2>
       </div>
-      <div class="question-wrapper_details p-5 pt-0">
+      <div class="question-wrapper_details p-5 pt-0 pb-0">
         <div class="question_status p-5 pl-0">
           <div 
             class="question_value_status p-4 mb-4"
@@ -88,11 +88,11 @@
           </div>
         </div>
       </div>
-      <div class="question_link">
+      <div class="pl-5 pb-4">
         <a 
           :href="details.link"
           :title="details.link"
-          class="text-success"
+          class="question_link"
           data-test="question_link"
           rel="noopener"
           target="_blank"
@@ -165,22 +165,27 @@ export default {
 
 <style scoped lang="scss">
 .question {
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+  -ms-transform: translateY(-50%);
   color: #fff;
-  height: 100%;
+  margin: 0;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transform: translateY(-50%);
   &_title {
     background: #fff;
     border-radius: 10px;
     color: #343a40;
-    
-    width: 50%;
+    font-size: 1.3rem;
+    font-weight: 900;
+    max-width: 80%;
   }
   &_card {
     background: #0F2027;  
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    border-radius: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   }
   &_tag {
     &_value {
@@ -188,8 +193,6 @@ export default {
       border-radius: 10px;
       color: rgb(216, 216, 216);
       text-align: center;
-
-
       &_input {
         background-clip: padding-box;
         background-color: #fff;
@@ -212,6 +215,16 @@ export default {
     }
   }
   &_link {
+    background-color: transparent;
+    color: #28a745;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-decoration: none;
+    &:hover {
+      color: #2d9445;
+      
+      transition: color 0.8s;
+    }
     & span {
       position: relative;
       left: 0;
