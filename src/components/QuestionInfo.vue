@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <div class="question_card">
+    <div class="question_card container">
       <div class="question_tag">
         <span class="question_tag_parameter">Tag:</span>
         <span 
@@ -9,12 +9,10 @@
             {{ tag }}
         </span>
       </div>
-      <form
-        class="my-4" 
+      <form 
         @submit.prevent="updateTag"
       >
         <input
-          class="w-50"
           data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
@@ -22,66 +20,64 @@
         />
       </form>
       <div class="question_title">
-        <div 
-          class="card-title"
+        <div
           data-test="question_title"
         >
           Question: 
         </div>
-        <h3 
-          class="font-weight-bold"
+        <h3
           data-test="question_title_value"
         > 
           {{ details.title }}
         </h3>
       </div>
-      <div class="row">
-        <div class="question_status">
+      <div class="question-wrapper_details p-5">
+        <div class="question_status p-5">
           <div 
-            class="question_status_value"
+            class="question_value_status p-4 mb-4"
             data-test="question_status_value"
           >
             {{ details.is_answered }}
           </div>
           <div 
-            class="question_status_parameter mt-4 text-center"
+            class="question_param_status"
             data-test="question_answered"
           >
             Answered
           </div>
         </div>
-        <div class="question_views">
+        <div class="question_views p-5">
           <div 
-            class="question_views_value"
+            class="question_value_views p-4 mb-4"
             data-test="question_views_value"
           >
             {{ details.view_count }}
           </div>
           <div 
-            class="question_views_parameter mt-4 text-center"
+            class="question_param_views"
             data-test="question_views"
           >
             Views
           </div>
         </div>
-        <div class="question_answers m-4">
-          <div class="question_answers_value">{{ details.answer_count }}</div>
+        <div class="question_answers p-5">
+          <div class="question_value_answers p-4 mb-4">{{ details.answer_count }}</div>
           <div 
-            class="question_answers_parameter"
+            class="question_param_answers"
             data-test="question_answers"
           >
             Answers
           </div>
         </div>
-        <div class="question_score m-4">
+        <div class="question_score p-5">
           <div 
-            class="question_score_value"
+            class="question_value_score p-4 mb-4"
             data-test="question_score_value"
           >
             {{ details.score }}
           </div>
           <div 
-            class="question_score_parameter"
+            class="question_param_score"
             data-test="question_score"
           >
             Score
@@ -192,6 +188,26 @@ export default {
         left: 5px;
         transition: all 0.4s ease-in-out;
       }
+    }
+  }
+  &_param {
+    &_status, &_views, &_answers, &_score {
+      
+      font-size: 1.2rem;
+      font-weight: 900;
+    } 
+  }
+  &_value {
+    &_status, &_views, &_answers, &_score {
+      background: #343a40;
+
+      border-radius: 50%;
+    } 
+  }
+  &-wrapper {
+    &_details {
+      display: flex;
+      text-align: center;
     }
   }
 }

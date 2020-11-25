@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './styles/layout-utilities.css';
 * {
   margin: 0;
   padding: 0;
