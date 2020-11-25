@@ -1,38 +1,42 @@
 <template>
   <div class="question">
     <div class="question_card container">
-      <div class="question_tag">
+      <div class="question_tag p-5 pb-0 pl-0 ml-5">
         <span class="question_tag_parameter">Tag:</span>
         <span 
-          class="question_tag_value"
+          class="question_tag_value px-3 py-1 ml-2"
           data-test="question_tag_value">
             {{ tag }}
         </span>
       </div>
       <form 
+        class="p-5 py-3"
         @submit.prevent="updateTag"
       >
         <input
+          class="question_tag_value_input"
           data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
         />
       </form>
-      <div class="question_title">
+      <div class="question_title p-5 pt-0 pb-3 pl-0 ml-5">
         <div
+          class="pt-3 m-3"
           data-test="question_title"
         >
           Question: 
         </div>
-        <h3
+        <h2
+          class="pt-1 m-3"
           data-test="question_title_value"
         > 
           {{ details.title }}
-        </h3>
+        </h2>
       </div>
-      <div class="question-wrapper_details p-5">
-        <div class="question_status p-5">
+      <div class="question-wrapper_details p-5 pt-0">
+        <div class="question_status p-5 pl-0">
           <div 
             class="question_value_status p-4 mb-4"
             data-test="question_status_value"
@@ -164,8 +168,15 @@ export default {
   background: #0f0c29;
   background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
-  height: 100%;
   color: #fff;
+  height: 100%;
+  &_title {
+    background: #fff;
+    border-radius: 10px;
+    color: #343a40;
+    
+    width: 50%;
+  }
   &_card {
     background: #0F2027;  
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
@@ -174,7 +185,30 @@ export default {
   &_tag {
     &_value {
       background: #808080;
+      border-radius: 10px;
       color: rgb(216, 216, 216);
+      text-align: center;
+
+
+      &_input {
+        background-clip: padding-box;
+        background-color: #fff;
+        border-radius: .25rem;
+        border: 1px solid #ced4da;
+        color: #495057;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: .375rem .75rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        width: 35%;
+          &:focus {
+          color: #495057;
+          background-color: #fff;
+          border-color: #80bdff;
+          box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+          outline: 0;
+        }
+      }
     }
   }
   &_link {
@@ -192,7 +226,6 @@ export default {
   }
   &_param {
     &_status, &_views, &_answers, &_score {
-      
       font-size: 1.2rem;
       font-weight: 900;
     } 
@@ -200,7 +233,6 @@ export default {
   &_value {
     &_status, &_views, &_answers, &_score {
       background: #343a40;
-
       border-radius: 50%;
     } 
   }
