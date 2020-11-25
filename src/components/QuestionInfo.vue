@@ -1,10 +1,10 @@
 <template>
-  <div class="question container-fluid d-flex">
-    <div class="question_card align-self-center col-12 col-md-8 border-gray p-4 mx-auto  shadow rounded">
-      <div class="question_tag my-3">
+  <div class="question">
+    <div class="question_card">
+      <div class="question_tag">
         <span class="question_tag_parameter">Tag:</span>
         <span 
-          class="question_tag_value px-3 py-1 ml-2"
+          class="question_tag_value"
           data-test="question_tag_value">
             {{ tag }}
         </span>
@@ -21,7 +21,7 @@
           v-model="newTag"
         />
       </form>
-      <div class="question_title bg-light d-inline-block p-3 rounded text-dark">
+      <div class="question_title">
         <div 
           class="card-title"
           data-test="question_title"
@@ -36,9 +36,9 @@
         </h3>
       </div>
       <div class="row">
-        <div class="question_status m-4">
+        <div class="question_status">
           <div 
-            class="question_status_value bg-dark p-4 rounded-circle text-center"
+            class="question_status_value"
             data-test="question_status_value"
           >
             {{ details.is_answered }}
@@ -50,9 +50,9 @@
             Answered
           </div>
         </div>
-        <div class="question_views m-4">
+        <div class="question_views">
           <div 
-            class="question_views_value bg-dark p-4 rounded-circle text-center"
+            class="question_views_value"
             data-test="question_views_value"
           >
             {{ details.view_count }}
@@ -65,9 +65,9 @@
           </div>
         </div>
         <div class="question_answers m-4">
-          <div class="question_answers_value bg-dark p-4 rounded-circle text-center">{{ details.answer_count }}</div>
+          <div class="question_answers_value">{{ details.answer_count }}</div>
           <div 
-            class="question_answers_parameter mt-4 text-center"
+            class="question_answers_parameter"
             data-test="question_answers"
           >
             Answers
@@ -75,20 +75,20 @@
         </div>
         <div class="question_score m-4">
           <div 
-            class="question_score_value bg-dark p-4 rounded-circle text-center"
+            class="question_score_value"
             data-test="question_score_value"
           >
             {{ details.score }}
           </div>
           <div 
-            class="question_score_parameter mt-4 text-center"
+            class="question_score_parameter"
             data-test="question_score"
           >
             Score
           </div>
         </div>
       </div>
-      <div class="question_link ml-1 my-3">
+      <div class="question_link">
         <a 
           :href="details.link"
           :title="details.link"
