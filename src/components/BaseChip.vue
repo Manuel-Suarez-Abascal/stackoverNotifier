@@ -9,8 +9,9 @@ export default {
     name: 'BaseChip',
     props: {
         displayInfo: {
-            type: String,
+            type: [String, Number, Boolean],
             required: true,
+            default: ''
         }
     }
 }

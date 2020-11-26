@@ -25,6 +25,7 @@ export default {
         questionTitle: {
             type: String,
             required: true,
+            default: ''
         }
     }
 }

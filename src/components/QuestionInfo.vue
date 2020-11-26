@@ -8,14 +8,14 @@
       >
         <input
           class="question_input"
-          data-test="question_tag_value_input"
+          data-test="question_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
         />
       </form>
      <QuestionTitle :question-title="details.title" />
-      <div class="question-wrapper_details p-5 pt-0 pb-0">
+      <div class="question_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
           <div
@@ -171,11 +171,9 @@ export default {
       font-weight: 900;
     }
   }
-  &-wrapper {
-    &_details {
-      display: flex;
-      text-align: center;
-    }
+  &_details {
+    display: flex;
+    text-align: center;
   }
 }
 </style>

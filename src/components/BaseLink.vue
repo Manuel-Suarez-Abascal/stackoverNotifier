@@ -22,6 +22,7 @@ export default {
         linkHref: {
             type: String,
             required: true,
+            default: ''
         },
         linkTitle: {
             type: String,
