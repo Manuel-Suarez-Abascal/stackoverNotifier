@@ -36,7 +36,7 @@
         </h2>
       </div>
       <div class="question-wrapper_details p-5 pt-0 pb-0">
-        <div class="question_status p-5 pl-0" data-test="question_status_value">
+        <div class="p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
           <div 
             class="question_param_status"
@@ -45,7 +45,7 @@
             Answered
           </div>
         </div>
-        <div class="question_views p-5" data-test="question_views_value">
+        <div class="p-5" data-test="question_views_value">
           <BaseChip :display-info="details.view_count" />
           <div 
             class="question_param_views"
@@ -54,7 +54,7 @@
             Views
           </div>
         </div>
-        <div class="question_answers p-5">
+        <div class="p-5">
           <BaseChip :display-info="details.answer_count" />
           <div 
             class="question_param_answers"
@@ -63,7 +63,7 @@
             Answers
           </div>
         </div>
-        <div class="question_score p-5" data-test="question_score_value">
+        <div class="p-5" data-test="question_score_value">
           <BaseChip :display-info="details.score" />
           <div 
             class="question_param_score"
