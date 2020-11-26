@@ -37,12 +37,10 @@
       </div>
       <div class="question-wrapper_details p-5 pt-0 pb-0">
         <div class="question_status p-5 pl-0">
-          <div 
-            class="question_value_status p-4 mb-4"
-            data-test="question_status_value"
-          >
-            {{ details.is_answered }}
+          <div class="question_value_answers p-4 mb-4">
+            <BaseChip :display-info="details.is_answered" />
           </div>
+          
           <div 
             class="question_param_status"
             data-test="question_answered"
@@ -55,7 +53,7 @@
             class="question_value_views p-4 mb-4"
             data-test="question_views_value"
           >
-            {{ details.view_count }}
+            <BaseChip :display-info="details.view_count" />
           </div>
           <div 
             class="question_param_views"
@@ -65,7 +63,9 @@
           </div>
         </div>
         <div class="question_answers p-5">
-          <div class="question_value_answers p-4 mb-4">{{ details.answer_count }}</div>
+          <div class="question_value_answers p-4 mb-4">
+            <BaseChip :display-info="details.answer_count" />
+          </div>
           <div 
             class="question_param_answers"
             data-test="question_answers"
@@ -78,7 +78,7 @@
             class="question_value_score p-4 mb-4"
             data-test="question_score_value"
           >
-            {{ details.score }}
+            <BaseChip :display-info="details.score" />
           </div>
           <div 
             class="question_param_score"
@@ -107,9 +107,13 @@
 
 <script>
 import axios from 'axios'
+import BaseChip from './BaseChip';
 
 export default {
   name: 'QuestionInfo',
+  components: {
+    BaseChip,
+  },
   data(){
     return {
       lastQuestion: [],
