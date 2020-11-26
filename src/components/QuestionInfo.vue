@@ -2,19 +2,8 @@
   <div class="question">
     <div class="question_card container">
       <BaseTag :tag-name="this.tag" />
-      <form
-        class="p-5 py-3"
-        @submit.prevent="updateTag"
-      >
-        <input
-          class="question_input"
-          data-test="question_input"
-          placeholder="Enter a stackoverflow tag..."
-          type="text"
-          v-model="newTag"
-        />
-      </form>
-     <QuestionTitle :question-title="details.title" />
+      <BaseForm @handleInputForm="updateTag($event)" />
+      <QuestionTitle :question-title="details.title" />
       <div class="question_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
@@ -66,6 +55,7 @@
 import axios from 'axios'
 import BaseChip from './BaseChip';
 import BaseLink from './BaseLink';
+import BaseForm from './BaseForm'
 import BaseTag from './BaseTag';
 import QuestionTitle from './QuestionTitle';
 
@@ -74,6 +64,7 @@ export default {
   components: {
     BaseChip,
     BaseLink,
+    BaseForm,
     BaseTag,
     QuestionTitle,
   },
@@ -82,7 +73,6 @@ export default {
       lastQuestion: [],
       details: [],
       tag: `javascript`,
-      newTag: '',
       notificationMessage: null
     }
   },
@@ -90,10 +80,9 @@ export default {
     this.getTag()
   },
   methods: {
-    updateTag() {
-      this.tag = this.newTag
+    updateTag(formValue) { 
+      this.tag = formValue
       this.getQuestion()
-      this.newTag = ''
     },
     getTag(){
       setInterval(() => {
@@ -146,25 +135,7 @@ export default {
     border-radius: 1rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   }
-  &_input {
-    background-clip: padding-box;
-    background-color: #fff;
-    border-radius: .25rem;
-    border: 1px solid #ced4da;
-    color: #495057;
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: .375rem .75rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    width: 35%;
-      &:focus {
-      color: #495057;
-      background-color: #fff;
-      border-color: #80bdff;
-      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-      outline: 0;
-    }
-  }
+  
   &_param {
     &_status, &_views, &_answers, &_score {
       font-size: 1.2rem;
