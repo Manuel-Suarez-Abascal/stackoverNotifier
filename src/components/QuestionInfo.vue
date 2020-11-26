@@ -7,27 +7,15 @@
         @submit.prevent="updateTag"
       >
         <input
-          class="question_value_input"
+          class="question_input"
           data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
           v-model="newTag"
         />
       </form>
-      <div class="question_title p-5 pt-0 pb-3 pl-0 ml-5">
-        <div
-          class="pt-3 m-3"
-          data-test="question_title"
-        >
-          Question: 
-        </div>
-        <h2
-          class="pt-1 m-3"
-          data-test="question_title_value"
-        > 
-          {{ details.title }}
-        </h2>
-      </div>
+     
+     <QuestionTitle :question-title="details.title" />
       <div class="question-wrapper_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
@@ -87,12 +75,14 @@
 import axios from 'axios'
 import BaseChip from './BaseChip';
 import BaseTag from './BaseTag';
+import QuestionTitle from './QuestionTitle';
 
 export default {
   name: 'QuestionInfo',
   components: {
     BaseChip,
-    BaseTag
+    BaseTag,
+    QuestionTitle,
   },
   data(){
     return {
@@ -156,14 +146,6 @@ export default {
   right: 25%;
   top: 50%;
   transform: translateY(-50%);
-  &_title {
-    background: #fff;
-    border-radius: 10px;
-    color: #343a40;
-    font-size: 1.3rem;
-    font-weight: 900;
-    max-width: 80%;
-  }
   &_card {
     background: #0F2027;  
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
@@ -171,29 +153,23 @@ export default {
     border-radius: 1rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   }
-  &_value {
-    background: #808080;
-    border-radius: 10px;
-    color: rgb(216, 216, 216);
-    text-align: center;
-    &_input {
-      background-clip: padding-box;
-      background-color: #fff;
-      border-radius: .25rem;
-      border: 1px solid #ced4da;
+  &_input {
+    background-clip: padding-box;
+    background-color: #fff;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+    color: #495057;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 35%;
+      &:focus {
       color: #495057;
-      font-size: 1rem;
-      line-height: 1.5;
-      padding: .375rem .75rem;
-      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-      width: 35%;
-        &:focus {
-        color: #495057;
-        background-color: #fff;
-        border-color: #80bdff;
-        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-        outline: 0;
-      }
+      background-color: #fff;
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      outline: 0;
     }
   }
   &_link {
