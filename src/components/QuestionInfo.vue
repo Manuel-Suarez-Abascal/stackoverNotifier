@@ -37,7 +37,7 @@
       </div>
       <div class="question-wrapper_details p-5 pt-0 pb-0">
         <div class="question_status p-5 pl-0">
-          <div class="question_value_answers p-4 mb-4">
+          <div class="question_value_answers">
             <BaseChip :display-info="details.is_answered" />
           </div>
           
@@ -50,7 +50,7 @@
         </div>
         <div class="question_views p-5">
           <div 
-            class="question_value_views p-4 mb-4"
+            class="question_value_views"
             data-test="question_views_value"
           >
             <BaseChip :display-info="details.view_count" />
@@ -63,7 +63,7 @@
           </div>
         </div>
         <div class="question_answers p-5">
-          <div class="question_value_answers p-4 mb-4">
+          <div class="question_value_answers">
             <BaseChip :display-info="details.answer_count" />
           </div>
           <div 
@@ -75,7 +75,7 @@
         </div>
         <div class="question_score p-5">
           <div 
-            class="question_value_score p-4 mb-4"
+            class="question_value_score"
             data-test="question_score_value"
           >
             <BaseChip :display-info="details.score" />
@@ -245,13 +245,7 @@ export default {
     &_status, &_views, &_answers, &_score {
       font-size: 1.2rem;
       font-weight: 900;
-    } 
-  }
-  &_value {
-    &_status, &_views, &_answers, &_score {
-      background: #343a40;
-      border-radius: 50%;
-    } 
+    }
   }
   &-wrapper {
     &_details {
