@@ -36,7 +36,7 @@
         </h2>
       </div>
       <div class="question-wrapper_details p-5 pt-0 pb-0">
-        <div class="question_status p-5 pl-0">
+        <div class="question_status p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
           <div 
             class="question_param_status"
@@ -209,17 +209,14 @@ export default {
     font-size: 1.2rem;
     font-weight: 900;
     text-decoration: none;
-    &:hover {
-      color: #2d9445;
-      
-      transition: color 0.8s;
-    }
     & span {
       position: relative;
       left: 0;
     }
     &:hover {
+      color: #237a37;
       cursor: pointer;
+      transition: color 0.8s;
       & span {
         left: 5px;
         transition: all 0.4s ease-in-out;
