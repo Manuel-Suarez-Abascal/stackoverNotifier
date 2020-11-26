@@ -1,20 +1,13 @@
 <template>
   <div class="question">
     <div class="question_card container">
-      <div class="question_tag p-5 pb-0 pl-0 ml-5">
-        <span class="question_tag_parameter">Tag:</span>
-        <span 
-          class="question_tag_value px-3 py-1 ml-2"
-          data-test="question_tag_value">
-            {{ tag }}
-        </span>
-      </div>
-      <form 
+      <BaseTag :tag-name="this.tag" />
+      <form
         class="p-5 py-3"
         @submit.prevent="updateTag"
       >
         <input
-          class="question_tag_value_input"
+          class="question_value_input"
           data-test="question_tag_value_input"
           placeholder="Enter a stackoverflow tag..."
           type="text"
@@ -38,7 +31,7 @@
       <div class="question-wrapper_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
-          <div 
+          <div
             class="question_param_status"
             data-test="question_answered"
           >
@@ -47,7 +40,7 @@
         </div>
         <div class="p-5" data-test="question_views_value">
           <BaseChip :display-info="details.view_count" />
-          <div 
+          <div
             class="question_param_views"
             data-test="question_views"
           >
@@ -93,11 +86,13 @@
 <script>
 import axios from 'axios'
 import BaseChip from './BaseChip';
+import BaseTag from './BaseTag';
 
 export default {
   name: 'QuestionInfo',
   components: {
     BaseChip,
+    BaseTag
   },
   data(){
     return {
@@ -176,30 +171,28 @@ export default {
     border-radius: 1rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   }
-  &_tag {
-    &_value {
-      background: #808080;
-      border-radius: 10px;
-      color: rgb(216, 216, 216);
-      text-align: center;
-      &_input {
-        background-clip: padding-box;
-        background-color: #fff;
-        border-radius: .25rem;
-        border: 1px solid #ced4da;
+  &_value {
+    background: #808080;
+    border-radius: 10px;
+    color: rgb(216, 216, 216);
+    text-align: center;
+    &_input {
+      background-clip: padding-box;
+      background-color: #fff;
+      border-radius: .25rem;
+      border: 1px solid #ced4da;
+      color: #495057;
+      font-size: 1rem;
+      line-height: 1.5;
+      padding: .375rem .75rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      width: 35%;
+        &:focus {
         color: #495057;
-        font-size: 1rem;
-        line-height: 1.5;
-        padding: .375rem .75rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-        width: 35%;
-          &:focus {
-          color: #495057;
-          background-color: #fff;
-          border-color: #80bdff;
-          box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-          outline: 0;
-        }
+        background-color: #fff;
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        outline: 0;
       }
     }
   }

@@ -14,7 +14,6 @@ export default {
         displayInfo: {
             type: String,
             required: true,
-            default: '0',
         }
     }
 }
