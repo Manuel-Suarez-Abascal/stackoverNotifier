@@ -12,9 +12,6 @@
 <script>
 export default {
     name: 'BaseTag',
-    data() {
-        return {}
-    },
     props: {
         tagName: {
             type: String,

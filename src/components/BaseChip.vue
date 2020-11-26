@@ -7,9 +7,6 @@
 <script>
 export default {
     name: 'BaseChip',
-    data(){
-        return {}
-    },
     props: {
         displayInfo: {
             type: String,

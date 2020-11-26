@@ -14,7 +14,6 @@
           v-model="newTag"
         />
       </form>
-     
      <QuestionTitle :question-title="details.title" />
       <div class="question-wrapper_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
@@ -54,19 +53,11 @@
           </div>
         </div>
       </div>
-      <div class="pl-5 pb-4">
-        <a 
-          :href="details.link"
-          :title="details.link"
-          class="question_link"
-          data-test="question_link"
-          rel="noopener"
-          target="_blank"
-        >
-          Go to answer question 
-          <span>&rarr;</span>
-        </a>
-      </div>
+      <BaseLink
+        :link-href="details.link"
+        :link-title="details.title"
+        link-message="Go to answer the question"
+      />
     </div>
   </div>
 </template>
@@ -74,6 +65,7 @@
 <script>
 import axios from 'axios'
 import BaseChip from './BaseChip';
+import BaseLink from './BaseLink';
 import BaseTag from './BaseTag';
 import QuestionTitle from './QuestionTitle';
 
@@ -81,6 +73,7 @@ export default {
   name: 'QuestionInfo',
   components: {
     BaseChip,
+    BaseLink,
     BaseTag,
     QuestionTitle,
   },
@@ -170,26 +163,6 @@ export default {
       border-color: #80bdff;
       box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
       outline: 0;
-    }
-  }
-  &_link {
-    background-color: transparent;
-    color: #28a745;
-    font-size: 1.2rem;
-    font-weight: 900;
-    text-decoration: none;
-    & span {
-      position: relative;
-      left: 0;
-    }
-    &:hover {
-      color: #237a37;
-      cursor: pointer;
-      transition: color 0.8s;
-      & span {
-        left: 5px;
-        transition: all 0.4s ease-in-out;
-      }
     }
   }
   &_param {
