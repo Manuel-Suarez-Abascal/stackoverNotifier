@@ -9,7 +9,7 @@ describe('Fetch Questions from Stackoverflow', () => {
             expect(res.status).to.be.eq(200);
 
             const questionObject = res.body.items[0];
-            console.log(questionObject)
+
             const { title, is_answered, view_count, score } = questionObject;
 
             cy.log(`Asserting the fetched response object:
@@ -27,7 +27,7 @@ describe('Fetch Questions from Stackoverflow', () => {
     })
     
     it('tag loads correctly on initial load', () => {
-        cy.get('[data-test="question_tag_value"]')
+        cy.get('[data-test="tag_value"]')
             .should('exist')
             .and('be.visible')
             .then(tag => {
@@ -37,7 +37,7 @@ describe('Fetch Questions from Stackoverflow', () => {
     });
 
     it('input field loads & contains right placeholder value', () => {
-        cy.get('[data-test="question_tag_value_input"]')
+        cy.get('[data-test="question_input"]')
             .should('exist')
             .and('be.visible')
             .then(inputField => {
@@ -52,22 +52,22 @@ describe('Fetch Questions from Stackoverflow', () => {
             .and('be.visible')
             .and('contain', 'Question:');
         
-        cy.get('[data-test="question_answered"]')
+        cy.get('[data-test="answered"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Answered');
 
-        cy.get('[data-test="question_views"]')
+        cy.get('[data-test="views"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Views');
 
-        cy.get('[data-test="question_answers"]')
+        cy.get('[data-test="answers"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Answers');
 
-        cy.get('[data-test="question_score"]')
+        cy.get('[data-test="score"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Score');
@@ -77,6 +77,6 @@ describe('Fetch Questions from Stackoverflow', () => {
         cy.get('[data-test="question_link"]')
             .should('exist')
             .and('be.visible')
-            .and('contain', 'Go to answer question');
+            .and('contain', 'Go to answer the question');
     });
 }) 

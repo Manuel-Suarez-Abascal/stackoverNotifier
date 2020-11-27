@@ -5,18 +5,18 @@
 </template>
 
 <script>
-import QuestionInfo from './components/QuestionInfo.vue'
+import QuestionInfo from "./components/QuestionInfo.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     QuestionInfo
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import './styles/layout-utilities.css';
+@import "./styles/layout-utilities.css";
 
 * {
   margin: 0;
