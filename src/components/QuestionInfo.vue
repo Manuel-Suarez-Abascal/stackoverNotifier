@@ -32,73 +32,78 @@
 </template>
 
 <script>
-import axios from 'axios'
-import BaseChip from './base-components/BaseChip';
-import BaseForm from './base-components/BaseForm';
-import BaseLabel from './base-components/BaseLabel';
-import BaseLink from './base-components/BaseLink';
-import BaseTag from './base-components/BaseTag';
-import QuestionTitle from './QuestionTitle';
+import axios from "axios";
+import BaseChip from "./base-components/BaseChip";
+import BaseForm from "./base-components/BaseForm";
+import BaseLabel from "./base-components/BaseLabel";
+import BaseLink from "./base-components/BaseLink";
+import BaseTag from "./base-components/BaseTag";
+import QuestionTitle from "./QuestionTitle";
 
 export default {
-  name: 'QuestionInfo',
+  name: "QuestionInfo",
   components: {
     BaseChip,
     BaseForm,
     BaseLabel,
     BaseLink,
     BaseTag,
-    QuestionTitle,
+    QuestionTitle
   },
-  data(){
+  data() {
     return {
       lastQuestion: [],
       details: [],
       tag: `javascript`,
       notificationMessage: null
-    }
+    };
   },
-  mounted(){
-    this.getTag()
+  mounted() {
+    this.getTag();
   },
   methods: {
-    updateTag(formValue) { 
-      this.tag = formValue
-      this.getQuestion()
+    updateTag(formValue) {
+      this.tag = formValue;
+      this.getQuestion();
     },
-    getTag(){
+    getTag() {
       setInterval(() => {
-        this.getQuestion()
+        this.getQuestion();
       }, 61000);
     },
-    getQuestion(){
-      axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((`).then(response => {
-        this.details = response.data.items[0]
-        if(this.lastQuestion !== this.details.title){
-          this.sendNotification()
-          this.lastQuestion = this.details.title
-        }
-      }).catch(err => {
-        console.log(err)
-      })
-    },
-    sendNotification() {
-      if ('Notification' in window) {
-        let ask = Notification.requestPermission()
-        ask.then( permission => {
-          if ( permission === 'granted') {
-            this.notificationMessage = new Notification(`Here there!`, {
-              body: `A new question has been asked!`
-            })
+    getQuestion() {
+      axios
+        .get(
+          `https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((`
+        )
+        .then(response => {
+          this.details = response.data.items[0];
+          if (this.lastQuestion !== this.details.title) {
+            this.sendNotification();
+            this.lastQuestion = this.details.title;
           }
         })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    sendNotification() {
+      if ("Notification" in window) {
+        let ask = Notification.requestPermission();
+        ask.then(permission => {
+          if (permission === "granted") {
+            this.notificationMessage = new Notification(`Here there!`, {
+              body: `A new question has been asked!`
+            });
+          }
+        });
       }
     }
   },
-  created(){
-    this.getQuestion()
-  },
-}
+  created() {
+    this.getQuestion();
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -111,11 +116,11 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   &_card {
-    background: #0F2027;  
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    background: #0f2027;
+    background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
     border-radius: 1rem;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
   &_details {
     display: flex;
