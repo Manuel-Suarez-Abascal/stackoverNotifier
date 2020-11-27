@@ -52,22 +52,22 @@ describe('Fetch Questions from Stackoverflow', () => {
             .and('be.visible')
             .and('contain', 'Question:');
         
-        cy.get('[data-test="question_answered"]')
+        cy.get('[data-test="answered"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Answered');
 
-        cy.get('[data-test="question_views"]')
+        cy.get('[data-test="views"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Views');
 
-        cy.get('[data-test="question_answers"]')
+        cy.get('[data-test="answers"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Answers');
 
-        cy.get('[data-test="question_score"]')
+        cy.get('[data-test="score"]')
             .should('exist')
             .and('be.visible')
             .and('contain', 'Score');

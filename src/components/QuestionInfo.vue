@@ -7,39 +7,19 @@
       <div class="question_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
           <BaseChip :display-info="details.is_answered" />
-          <div
-            class="question_param_status"
-            data-test="question_answered"
-          >
-            Answered
-          </div>
+          <BaseLabel labelMessage="Answered" />
         </div>
         <div class="p-5" data-test="question_views_value">
           <BaseChip :display-info="details.view_count" />
-          <div
-            class="question_param_views"
-            data-test="question_views"
-          >
-            Views
-          </div>
+          <BaseLabel labelMessage="Views" />
         </div>
         <div class="p-5">
           <BaseChip :display-info="details.answer_count" />
-          <div 
-            class="question_param_answers"
-            data-test="question_answers"
-          >
-            Answers
-          </div>
+          <BaseLabel labelMessage="Answers" />
         </div>
         <div class="p-5" data-test="question_score_value">
           <BaseChip :display-info="details.score" />
-          <div 
-            class="question_param_score"
-            data-test="question_score"
-          >
-            Score
-          </div>
+          <BaseLabel labelMessage="Score" />
         </div>
       </div>
       <BaseLink
@@ -53,18 +33,20 @@
 
 <script>
 import axios from 'axios'
-import BaseChip from './BaseChip';
-import BaseLink from './BaseLink';
-import BaseForm from './BaseForm'
-import BaseTag from './BaseTag';
+import BaseChip from './base-components/BaseChip';
+import BaseForm from './base-components/BaseForm';
+import BaseLabel from './base-components/BaseLabel';
+import BaseLink from './base-components/BaseLink';
+import BaseTag from './base-components/BaseTag';
 import QuestionTitle from './QuestionTitle';
 
 export default {
   name: 'QuestionInfo',
   components: {
     BaseChip,
-    BaseLink,
     BaseForm,
+    BaseLabel,
+    BaseLink,
     BaseTag,
     QuestionTitle,
   },
@@ -134,13 +116,6 @@ export default {
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
     border-radius: 1rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-  }
-  
-  &_param {
-    &_status, &_views, &_answers, &_score {
-      font-size: 1.2rem;
-      font-weight: 900;
-    }
   }
   &_details {
     display: flex;
