@@ -19,7 +19,10 @@ export default {
 @import "./styles/layout-utilities.css";
 
 * {
+  box-sizing: border-box;
   margin: 0;
+  min-height: 0;
+  min-width: 0;
   padding: 0;
 }
 #app {
