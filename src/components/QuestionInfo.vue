@@ -108,23 +108,33 @@ export default {
 
 <style scoped lang="scss">
 .question {
-  -ms-transform: translateY(-50%);
   color: #fff;
-  margin: 0;
-  position: absolute;
-  right: 25%;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 100%;
+  position: relative;
   &_card {
     background: #0f2027;
     background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
     background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
     border-radius: 1rem;
+    bottom: 0;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    height: 85%;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
   }
   &_details {
     display: flex;
     text-align: center;
+  }
+  @media only screen and (max-width: 600px) {
+    &_card {
+      width: 100%;
+    }
   }
 }
 </style>

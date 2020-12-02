@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-5 pb-4">
+  <div class="pb-4 ml-5">
     <a
       :href="linkHref"
       :title="linkTitle"

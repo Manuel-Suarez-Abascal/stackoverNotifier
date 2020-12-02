@@ -1,7 +1,7 @@
 <template>
-  <form class="p-5 py-3" @submit.prevent="handleInput">
+  <form class="py-3 ml-5" @submit.prevent="handleInput">
     <input
-      class="input"
+      class="input input_tag"
       data-test="question_input"
       placeholder="Enter a stackoverflow tag..."
       type="text"
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-input {
+.input_tag {
   background-clip: padding-box;
   background-color: #fff;
   border-radius: 0.25rem;
@@ -44,6 +44,11 @@ input {
     border-color: #80bdff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     outline: 0;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .input_tag {
+    width: 50%;
   }
 }
 </style>
