@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <QuestionInfo />
+    <QuestionInfo :questions="getQuestions" />
   </div>
 </template>
 
@@ -17,9 +17,6 @@ export default {
     return {
       getQuestions
     };
-  },
-  async mounted() {
-    console.log(await getQuestions('cypress'));
   }
 };
 </script>
