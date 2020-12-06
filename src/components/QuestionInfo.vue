@@ -59,20 +59,17 @@ export default {
   },
   props: {
     questions: {
-      type: Promise,
+      type: Function,
       required: false,
-      default: {}
+      default: () => {}
     }
-  },
-  mounted() {
-    this.getTag();
   },
   methods: {
     updateTag(formValue) {
       this.tag = formValue;
       this.notifyNewPostedQuestion();
     },
-    getTag() {
+    updateQuestion() {
       setInterval(() => {
         this.notifyNewPostedQuestion();
       }, 61000);
@@ -100,6 +97,7 @@ export default {
   },
   created() {
     this.notifyNewPostedQuestion();
+    this.updateQuestion();
   }
 };
 </script>
