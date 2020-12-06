@@ -6,11 +6,20 @@
 
 <script>
 import QuestionInfo from "./components/QuestionInfo.vue";
+import { getQuestions } from "./store/store";
 
 export default {
   name: "app",
   components: {
     QuestionInfo
+  },
+  data() {
+    return {
+      getQuestions
+    };
+  },
+  async mounted() {
+    console.log(await getQuestions('cypress'));
   }
 };
 </script>
