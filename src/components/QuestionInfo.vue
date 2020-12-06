@@ -3,28 +3,28 @@
     <div class="question_card container">
       <BaseTag :tag-name="this.tag" />
       <BaseForm @handleInputForm="updateTag($event)" />
-      <QuestionTitle :question-title="details.title" />
+      <QuestionTitle :question-title="allQuestions[0].title" />
       <div class="question_details p-5 pt-0 pb-0">
         <div class="p-5 pl-0" data-test="question_status_value">
-          <BaseChip :display-info="details.is_answered" />
+          <BaseChip :display-info="allQuestions[0].is_answered" />
           <BaseLabel labelMessage="Answered" />
         </div>
         <div class="p-5" data-test="question_views_value">
-          <BaseChip :display-info="details.view_count" />
+          <BaseChip :display-info="allQuestions[0].view_count" />
           <BaseLabel labelMessage="Views" />
         </div>
         <div class="p-5">
-          <BaseChip :display-info="details.answer_count" />
+          <BaseChip :display-info="allQuestions[0].answer_count" />
           <BaseLabel labelMessage="Answers" />
         </div>
         <div class="p-5" data-test="question_score_value">
-          <BaseChip :display-info="details.score" />
+          <BaseChip :display-info="allQuestions[0].score" />
           <BaseLabel labelMessage="Score" />
         </div>
       </div>
       <BaseLink
-        :link-href="details.link"
-        :link-title="details.title"
+        :link-href="allQuestions[0].link"
+        :link-title="allQuestions[0].title"
         link-message="Go to answer the question"
       />
     </div>
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import BaseChip from "./base-components/BaseChip";
 import BaseForm from "./base-components/BaseForm";
 import BaseLabel from "./base-components/BaseLabel";
@@ -53,39 +52,35 @@ export default {
   data() {
     return {
       lastQuestion: [],
-      details: [],
+      allQuestions: this.questions,
       tag: `javascript`,
       notificationMessage: null
     };
   },
-  mounted() {
-    this.getTag();
+  props: {
+    questions: {
+      type: Function,
+      required: false,
+      default: () => {}
+    }
   },
   methods: {
     updateTag(formValue) {
       this.tag = formValue;
-      this.getQuestion();
+      this.notifyNewPostedQuestion();
     },
-    getTag() {
+    updateQuestion() {
       setInterval(() => {
-        this.getQuestion();
+        this.notifyNewPostedQuestion();
       }, 61000);
     },
-    getQuestion() {
-      axios
-        .get(
-          `https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((`
-        )
-        .then(response => {
-          this.details = response.data.items[0];
-          if (this.lastQuestion !== this.details.title) {
-            this.sendNotification();
-            this.lastQuestion = this.details.title;
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
+    async notifyNewPostedQuestion() {
+      this.allQuestions = await this.questions(this.tag);
+
+      if (this.lastQuestion !== this.allQuestions[0].title) {
+        this.sendNotification();
+        this.lastQuestion = this.allQuestions[0].title;
+      }
     },
     sendNotification() {
       if ("Notification" in window) {
@@ -101,7 +96,8 @@ export default {
     }
   },
   created() {
-    this.getQuestion();
+    this.notifyNewPostedQuestion();
+    this.updateQuestion();
   }
 };
 </script>

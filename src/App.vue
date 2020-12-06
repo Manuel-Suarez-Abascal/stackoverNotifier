@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <QuestionInfo />
+    <QuestionInfo :questions="getQuestions" />
   </div>
 </template>
 
 <script>
 import QuestionInfo from "./components/QuestionInfo.vue";
+import { getQuestions } from "./store/store";
 
 export default {
   name: "app",
   components: {
     QuestionInfo
+  },
+  data() {
+    return {
+      getQuestions
+    };
   }
 };
 </script>
