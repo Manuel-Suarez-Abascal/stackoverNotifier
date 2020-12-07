@@ -15,25 +15,6 @@ Make sure to have all these dependencies installed in your local machine:
 - [Vue CLI](https://cli.vuejs.org/guide/installation.html) - v4.5.6
 
 
-# API key
-
-- You need to [get an API key](https://stackapps.com/apps/oauth/register) & add to the `getQuestion()` method's url like so:
-
-```
-getQuestion(){
-      axios.get(`https://api.stackexchange.com//2.2/questions?order=desc&sort=creation&tagged=${this.tag}&site=stackoverflow&key=<APIKeyGoesHere>`).then(response => {
-        this.details = response.data.items[0]
-        if(this.lastQuestion !== this.details.title){
-          this.sendNotification()
-          this.lastQuestion = this.details.title
-        }
-        // console.log an error if get() method is unsuccessful
-      }).catch(err => {
-        console.log(err)
-      })
-    },
-```
-
 ## Install Modules
 
 - Go to the project's root folder & run the following command:
