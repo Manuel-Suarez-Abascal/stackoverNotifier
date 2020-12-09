@@ -38,6 +38,7 @@ import BaseLabel from "./base-components/BaseLabel";
 import BaseLink from "./base-components/BaseLink";
 import BaseTag from "./base-components/BaseTag";
 import QuestionTitle from "./QuestionTitle";
+import notificationAudio from "../assets/notification/notification-audio.mp3";
 
 export default {
   name: "QuestionInfo",
@@ -54,7 +55,8 @@ export default {
       lastQuestion: [],
       allQuestions: this.questions,
       tag: `javascript`,
-      notificationMessage: null
+      notificationMessage: null,
+      notificationSound: new Audio(notificationAudio)
     };
   },
   props: {
@@ -90,6 +92,7 @@ export default {
             this.notificationMessage = new Notification(`Here there!`, {
               body: `A new question has been asked!`
             });
+            this.notificationSound.play();
           }
         });
       }
