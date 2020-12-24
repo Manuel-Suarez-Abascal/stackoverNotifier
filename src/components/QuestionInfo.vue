@@ -1,7 +1,9 @@
 <template>
   <div class="question">
     <div class="question_card container">
-      <BaseTag :tag-name="this.tag" />
+      <div class="tag p-5 pb-0 pl-0 ml-5">
+        <span>Tag:</span><BaseTag :tag-name="this.tag" />
+      </div>
       <BaseForm @handleInputForm="updateTag($event)" />
       <QuestionTitle :question-title="allQuestions[0].title" />
       <div class="question_details p-5 pt-0 pb-0">
@@ -28,13 +30,15 @@
         link-message="Go to answer the question"
       />
 
-      <span
-        class="question_tags"
-        v-for="questionTags in allQuestions[0].tags"
-        :key="questionTags"
-      >
-        <BaseTag :tag-name="questionTags" />
-      </span>
+      <div class="question_tags ml-5">
+        <span>Other tags:</span>
+        <span
+          v-for="questionTags in allQuestions[0].tags.slice(1, 5)"
+          :key="questionTags"
+        >
+          <BaseTag :tag-name="questionTags" />
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -137,6 +141,9 @@ export default {
   &_details {
     display: flex;
     text-align: center;
+  }
+  &_tags {
+    display: flex;
   }
   @media only screen and (max-width: 600px) {
     &_card {
