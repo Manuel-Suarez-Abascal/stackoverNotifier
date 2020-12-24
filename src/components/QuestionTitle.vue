@@ -3,9 +3,11 @@
     <div class="question_title_label pt-3 m-3" data-test="question_title">
       Question:
     </div>
-    <h2 class="pt-1 m-3" data-test="question_title_value">
-      {{ questionTitle }}
-    </h2>
+    <h2
+      class="pt-1 m-3"
+      data-test="question_title_value"
+      v-html="questionTitle"
+    ></h2>
   </div>
 </template>
 
