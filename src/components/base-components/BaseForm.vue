@@ -21,6 +21,7 @@ export default {
   methods: {
     handleInput: function() {
       this.$emit("handleInputForm", this.inputValue);
+      this.inputValue = "";
     }
   }
 };
