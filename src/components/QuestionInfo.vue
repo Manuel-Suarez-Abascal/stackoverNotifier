@@ -27,6 +27,14 @@
         :link-title="allQuestions[0].title"
         link-message="Go to answer the question"
       />
+
+      <span
+        class="question_tags"
+        v-for="questionTags in allQuestions[0].tags"
+        :key="questionTags"
+      >
+        <BaseTag :tag-name="questionTags" />
+      </span>
     </div>
   </div>
 </template>
