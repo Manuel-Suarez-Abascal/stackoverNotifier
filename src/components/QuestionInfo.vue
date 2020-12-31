@@ -7,22 +7,29 @@
       <BaseForm @handleInputForm="updateTag($event)" />
       <QuestionTitle :question-title="allQuestions[0].title" />
       <div class="question_details p-5 pt-0 pb-0">
-        <div class="p-5 pl-0" data-test="question_status_value">
-          <BaseChip :display-info="allQuestions[0].is_answered" />
-          <BaseLabel labelMessage="Answered" />
-        </div>
-        <div class="p-5" data-test="question_views_value">
-          <BaseChip :display-info="allQuestions[0].view_count" />
-          <BaseLabel labelMessage="Views" />
-        </div>
-        <div class="p-5">
-          <BaseChip :display-info="allQuestions[0].answer_count" />
-          <BaseLabel labelMessage="Answers" />
-        </div>
-        <div class="p-5" data-test="question_score_value">
-          <BaseChip :display-info="allQuestions[0].score" />
-          <BaseLabel labelMessage="Score" />
-        </div>
+        <BaseChip
+          :class="['p-5', 'pl-0']"
+          :data-test="question_status_value"
+          :display-info="allQuestions[0].is_answered"
+          labelMessage="Answered"
+        />
+        <BaseChip
+          :class="'p-5'"
+          :data-test="question_views_value"
+          :display-info="allQuestions[0].view_count"
+          labelMessage="Views"
+        />
+        <BaseChip
+          :class="'p-5'"
+          :display-info="allQuestions[0].answer_count"
+          labelMessage="Answers"
+        />
+        <BaseChip
+          :class="'p-5'"
+          :data-test="question_score_value"
+          :display-info="allQuestions[0].score"
+          labelMessage="Score"
+        />
       </div>
       <BaseLink
         :link-href="allQuestions[0].link"
@@ -46,7 +53,6 @@
 <script>
 import BaseChip from "./base-components/BaseChip";
 import BaseForm from "./base-components/BaseForm";
-import BaseLabel from "./base-components/BaseLabel";
 import BaseLink from "./base-components/BaseLink";
 import BaseTag from "./base-components/BaseTag";
 import QuestionTitle from "./QuestionTitle";
@@ -57,7 +63,6 @@ export default {
   components: {
     BaseChip,
     BaseForm,
-    BaseLabel,
     BaseLink,
     BaseTag,
     QuestionTitle
