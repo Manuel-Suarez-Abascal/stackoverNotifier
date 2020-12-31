@@ -1,13 +1,25 @@
 <template>
-  <span class="tag_value px-3 py-1 ml-2" data-test="tag_value">
-    {{ tagName }}
-  </span>
+  <div :class="this.classProps">
+    <span class="tag_value px-3 py-1 ml-2" data-test="tag_value">
+      {{ tagName }}
+    </span>
+  </div>
 </template>
 
 <script>
 export default {
   name: "BaseTag",
   props: {
+    classProps: {
+      type: String,
+      required: false,
+      default: ""
+    },
+    tagLabel: {
+      type: String,
+      required: false,
+      defaul: ""
+    },
     tagName: {
       type: String,
       required: true,

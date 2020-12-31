@@ -1,21 +1,22 @@
 <template>
   <div class="question">
     <div class="question_card container">
-      <div class="tag p-5 pb-0 pl-0 ml-5">
-        <span>Tag:</span><BaseTag :tag-name="this.tag" />
-      </div>
+      <BaseTag
+        :class="['tag', 'p-5', 'pb-0', 'pl-0', 'ml-5']"
+        :tag-name="this.tag"
+      />
       <BaseForm @handleInputForm="updateTag($event)" />
       <QuestionTitle :question-title="allQuestions[0].title" />
       <div class="question_details p-5 pt-0 pb-0">
         <BaseChip
           :class="['p-5', 'pl-0']"
-          :data-test="question_status_value"
+          :data-test="'question_status_value'"
           :display-info="allQuestions[0].is_answered"
           labelMessage="Answered"
         />
         <BaseChip
           :class="'p-5'"
-          :data-test="question_views_value"
+          :data-test="'question_views_value'"
           :display-info="allQuestions[0].view_count"
           labelMessage="Views"
         />
@@ -26,7 +27,7 @@
         />
         <BaseChip
           :class="'p-5'"
-          :data-test="question_score_value"
+          :data-test="'question_score_value'"
           :display-info="allQuestions[0].score"
           labelMessage="Score"
         />
