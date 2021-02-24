@@ -57,6 +57,7 @@ import BaseForm from "./base-components/BaseForm";
 import BaseLink from "./base-components/BaseLink";
 import BaseTag from "./base-components/BaseTag";
 import QuestionTitle from "./QuestionTitle";
+import axios from "axios";
 import notificationAudio from "../assets/notification/notification-audio.mp3";
 
 export default {
@@ -85,6 +86,14 @@ export default {
     }
   },
   methods: {
+    notifySlack({ webhookUrl, text } = {}) {
+      const jsonData = JSON.stringify({ text });
+      axios.post(webhookUrl, jsonData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      });
+    },
     updateTag(formValue) {
       this.tag = formValue;
       this.notifyNewPostedQuestion();
@@ -111,6 +120,11 @@ export default {
               body: `A new question has been asked!`
             });
             this.notificationSound.play();
+            this.notifySlack({
+              webhookUrl:
+                "https://hooks.slack.com/services/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",
+              text: `<!here> ${this.lastQuestion} Link: ${this.allQuestions[0].link}`
+            });
           }
         });
       }
