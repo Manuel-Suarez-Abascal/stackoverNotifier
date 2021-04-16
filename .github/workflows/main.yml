@@ -1,6 +1,6 @@
 name: Lint files on push
 
-on: [push]
+on: push
 
 jobs:
   build:
