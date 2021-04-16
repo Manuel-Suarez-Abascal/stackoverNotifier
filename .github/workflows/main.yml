@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Installing node_modules
+      - name: Installing node_modules...
         run: npm ci
-      - name: Running ESLint
+      - name: Running ESLint check...
         run: npm run lint:check
