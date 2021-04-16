@@ -7,17 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install modules
+      - name: Installing node_modules
         run: npm install
-      - name: Run ESLint
+      - name: Running ESLint
         run: npm run lint
-      - name: Set Github user email
+      - name: Setting Github user.email
         run: git config --global user.email "manuelsuarezabascal@gmail.com"
-      - name: Set Github user name
-        run: git config --global user.email "Manuel Abascal"
-      - name: Add fix for commit
+      - name: Setting Github user.name
+        run: git config --global user.name "Manuel Abascal"
+      - name: Adding fixes for committing
         run: git add .
-      - name: Commit fix
+      - name: Committing ESLint fixes
         run: git commit -m "fixed ESLint issues"
-      - name: Push fix to current PR branch
+      - name: Pushing fixes to current PR branch
         run: git push
