@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Installing node_modules
-        run: npm install
+        run: npm ci
       - name: Running ESLint
         run: npm run lint

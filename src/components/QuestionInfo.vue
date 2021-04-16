@@ -2,7 +2,8 @@
   <div class="question">
     <div class="question_card container">
       <BaseTag
-        :class="['tag', 'p-5', 'pb-0', 'pl-0', 'ml-5']"
+        :class="['tag', 
+        'p-5', 'pb-0', 'pl-0', 'ml-5']"
         :tag-name="this.tag"
       />
       <BaseForm @handleInputForm="updateTag($event)" />
