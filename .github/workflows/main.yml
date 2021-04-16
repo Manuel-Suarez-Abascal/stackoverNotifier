@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install modules
-        run: sudo npm install
+        run: npm install
       - name: Run ESLint
-        run: sudo npm run lint
+        run: npm run lint
