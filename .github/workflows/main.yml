@@ -10,4 +10,4 @@ jobs:
       - name: Installing node_modules
         run: npm ci
       - name: Running ESLint
-        run: npm run lint
+        run: npm run lint:check
