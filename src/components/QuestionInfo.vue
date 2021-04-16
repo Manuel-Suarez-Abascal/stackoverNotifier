@@ -3,6 +3,7 @@
     <div class="question_card container">
       <BaseTag
         :class="['tag', 'p-5', 'pb-0', 'pl-0', 'ml-5']"
+        :hasLabel="true"
         :tag-name="this.tag"
       />
       <BaseForm @handleInputForm="updateTag($event)" />
@@ -44,7 +45,7 @@
           v-for="questionTags in allQuestions[0].tags.slice(1, 5)"
           :key="questionTags"
         >
-          <BaseTag :tag-name="questionTags" />
+          <BaseTag :tag-name="questionTags" :hasLabel="false" />
         </span>
       </div>
     </div>
@@ -122,7 +123,7 @@ export default {
             this.notificationSound.play();
             this.notifySlack({
               webhookUrl:
-                "https://hooks.slack.com/services/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",
+                "https://hooks.slack.com/services/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",
               text: `<!here> ${this.lastQuestion} Link: ${this.allQuestions[0].link}`
             });
           }

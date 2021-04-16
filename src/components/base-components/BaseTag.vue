@@ -1,5 +1,6 @@
 <template>
   <div :class="this.classProps">
+    <span v-if="this.hasLabel">Tag:</span>
     <span class="tag_value px-3 py-1 ml-2" data-test="tag_value">
       {{ tagName }}
     </span>
@@ -15,10 +16,15 @@ export default {
       required: false,
       default: ""
     },
+    hasLabel: {
+      type: Boolean,
+      required: true,
+      default: true
+    },
     tagLabel: {
       type: String,
       required: false,
-      defaul: ""
+      default: ""
     },
     tagName: {
       type: String,
