@@ -11,3 +11,9 @@ jobs:
         run: npm install
       - name: Run ESLint
         run: npm run lint
+      - name: Add fix for commit
+        run: git add .
+      - name: Commit fix
+        run: git commit -m "fixed ESLint issues"
+      - name: Push fix to current PR branch
+        run: git push
