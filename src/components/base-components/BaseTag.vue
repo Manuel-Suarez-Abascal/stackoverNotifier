@@ -19,7 +19,7 @@ export default {
     hasLabel: {
       type: Boolean,
       required: true,
-      default: true
+      default: true,
     },
     tagLabel: {
       type: String,

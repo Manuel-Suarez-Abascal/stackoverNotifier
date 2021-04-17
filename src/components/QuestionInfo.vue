@@ -91,8 +91,8 @@ export default {
       const jsonData = JSON.stringify({ text });
       axios.post(webhookUrl, jsonData, {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       });
     },
     updateTag(formValue) {
@@ -124,7 +124,7 @@ export default {
             this.notifySlack({
               webhookUrl:
                 "https://hooks.slack.com/services/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",
-              text: `<!here> ${this.lastQuestion} Link: ${this.allQuestions[0].link}`
+              text: `<!here> ${this.lastQuestion} Link: ${this.allQuestions[0].link}`,
             });
           }
         });
