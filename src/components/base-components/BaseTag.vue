@@ -13,19 +13,19 @@ export default {
     classProps: {
       type: String,
       required: false,
-      default: ""
+      default: "",
     },
     tagLabel: {
       type: String,
       required: false,
-      defaul: ""
+      defaul: "",
     },
     tagName: {
       type: String,
       required: true,
-      default: "Default"
-    }
-  }
+      default: "Default",
+    },
+  },
 };
 </script>
 
