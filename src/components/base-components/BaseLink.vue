@@ -21,17 +21,17 @@ export default {
     linkHref: {
       type: String,
       required: true,
-      default: ""
+      default: "",
     },
     linkTitle: {
       type: String,
-      required: false
+      required: false,
     },
     linkMessage: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

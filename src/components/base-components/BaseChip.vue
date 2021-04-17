@@ -16,24 +16,24 @@ export default {
     classProps: {
       type: String,
       required: false,
-      default: ""
+      default: "",
     },
     cypressSelectorProps: {
       type: String,
       required: true,
-      default: ""
+      default: "",
     },
     displayInfo: {
       type: [String, Number, Boolean],
       required: true,
-      default: ""
+      default: "",
     },
     labelMessage: {
       type: String,
       required: false,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 
