@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint",
     "lint:check": "vue-cli-service lint --no-fix --max-warnings 0",
     "cypress:open": "npx cypress open",
-    "cypress:all": "./node_modules/.bin/cypress run --spec **/*.spec.js"
+    "cypress:all": "npx run cypress run --record --key 49e0281d-7165-4de8-8c1f-c3b6b61dce0e"
   },
   "dependencies": {
     "axios": "^0.21.1",

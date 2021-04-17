@@ -15,4 +15,4 @@ jobs:
         run: npm run lint:check
 
       - name: Running all Cypress test suites...
-        run: npm run cypress run --record --key 49e0281d-7165-4de8-8c1f-c3b6b61dce0e
+        run: npm run cypress:all
