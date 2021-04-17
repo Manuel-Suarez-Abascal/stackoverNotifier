@@ -1,5 +1,5 @@
 {
-    "baseUrl": "http://localhost:8080",
+    "baseUrl": "http://localhost:8081",
     "chromeWebSecurity": false,
     "projectId": "2u3ux8"
 }
