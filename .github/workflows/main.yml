@@ -1,4 +1,4 @@
-name: Lint files on push
+name: Lint files & run Cypress test suites on push
 
 on: push
 
@@ -13,3 +13,9 @@ jobs:
 
       - name: Running ESLint check...
         run: npm run lint:check
+
+      - name: Launching app in development environment...
+        run: npm run serve
+
+      - name: Running all Cypress test suites...
+        run: npm run cypress:all
