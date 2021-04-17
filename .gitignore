@@ -7,7 +7,7 @@ node_modules
 .env.*.local
 
 # cypress videos
-/cypress/videos
+cypress/videos
 
 # Log files
 npm-debug.log*
