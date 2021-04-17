@@ -1,0 +1,15 @@
+name: Lint files on push
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Installing node_modules...
+        run: npm ci
+
+      - name: Running ESLint check...
+        run: npm run lint:check

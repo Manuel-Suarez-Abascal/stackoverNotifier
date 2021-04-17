@@ -11,13 +11,13 @@ import { getQuestions } from "./store/store";
 export default {
   name: "app",
   components: {
-    QuestionInfo
+    QuestionInfo,
   },
   data() {
     return {
-      getQuestions
+      getQuestions,
     };
-  }
+  },
 };
 </script>
 

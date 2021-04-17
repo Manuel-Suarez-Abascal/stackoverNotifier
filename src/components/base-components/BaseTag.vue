@@ -14,7 +14,7 @@ export default {
     classProps: {
       type: String,
       required: false,
-      default: ""
+      default: "",
     },
     hasLabel: {
       type: Boolean,
@@ -24,14 +24,14 @@ export default {
     tagLabel: {
       type: String,
       required: false,
-      default: ""
+      defaul: "",
     },
     tagName: {
       type: String,
       required: true,
-      default: "Default"
-    }
-  }
+      default: "Default",
+    },
+  },
 };
 </script>
 

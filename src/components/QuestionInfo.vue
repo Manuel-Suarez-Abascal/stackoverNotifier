@@ -68,7 +68,7 @@ export default {
     BaseForm,
     BaseLink,
     BaseTag,
-    QuestionTitle
+    QuestionTitle,
   },
   data() {
     return {
@@ -76,15 +76,15 @@ export default {
       allQuestions: this.questions,
       tag: `javascript`,
       notificationMessage: null,
-      notificationSound: new Audio(notificationAudio)
+      notificationSound: new Audio(notificationAudio),
     };
   },
   props: {
     questions: {
       type: Function,
       required: false,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   methods: {
     notifySlack({ webhookUrl, text } = {}) {
@@ -115,10 +115,10 @@ export default {
     sendNotification() {
       if ("Notification" in window) {
         let ask = Notification.requestPermission();
-        ask.then(permission => {
+        ask.then((permission) => {
           if (permission === "granted") {
             this.notificationMessage = new Notification(`Here there!`, {
-              body: `A new question has been asked!`
+              body: `A new question has been asked!`,
             });
             this.notificationSound.play();
             this.notifySlack({
@@ -129,12 +129,12 @@ export default {
           }
         });
       }
-    }
+    },
   },
   created() {
     this.notifyNewPostedQuestion();
     this.updateQuestion();
-  }
+  },
 };
 </script>
 

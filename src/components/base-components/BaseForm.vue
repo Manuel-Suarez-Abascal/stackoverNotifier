@@ -15,15 +15,15 @@ export default {
   name: "BaseForm",
   data() {
     return {
-      inputValue: ""
+      inputValue: "",
     };
   },
   methods: {
-    handleInput: function() {
+    handleInput: function () {
       this.$emit("handleInputForm", this.inputValue);
       this.inputValue = "";
-    }
-  }
+    },
+  },
 };
 </script>
 
