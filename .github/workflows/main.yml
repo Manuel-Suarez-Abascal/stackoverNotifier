@@ -1,4 +1,4 @@
-name: Lint files on push
+name: Lint files & Cypress tests on push
 
 on: push
 
@@ -7,7 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Installing node_modules...
         run: npm ci
+
       - name: Running ESLint check...
         run: npm run lint:check
+
+      - name: Launching app in dev environment...
+        run: npm run serve
+
+      - name: Launching Cypress Test Runner...
+        run: npm run cypress:open
+
+      - name: Running all Cypress test suites...
+        run: npm run cypress:all
