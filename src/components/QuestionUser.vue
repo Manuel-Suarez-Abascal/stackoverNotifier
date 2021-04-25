@@ -1,15 +1,43 @@
 <template>
-  <div>{{ questionUser }}</div>
+  <div class="question_user pt-3 m-3">
+    <div class="question_user_image mb-2">
+      <img :src="user.profile_image" alt="user profile image" />
+    </div>
+    <div class="question_user_name mb-1">{{ user.display_name }}</div>
+    <div class="question_user_rep">Rep: {{ user.reputation }}</div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "QuestionUser",
   props: {
-    questionUser: {
+    user: {
       type: Object,
       required: true,
     },
   },
 };
 </script>
+
+<style scoped lang="scss">
+.question_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  &_image {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 9999px;
+    text-align: center;
+    overflow: hidden;
+    border: 2px solid black;
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+}
+</style>

@@ -1,8 +1,6 @@
 <template>
   <div class="question_title p-5 pt-0 pb-3 pl-0 ml-5">
-    <div class="question_title_user pt-3 m-3" data-test="question_user">
-      <QuestionUser :question-user="question.owner" />
-    </div>
+    <QuestionUser :user="question.owner" />
     <h2
       class="pt-1 m-3"
       data-test="question_title_value"
