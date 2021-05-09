@@ -1,10 +1,18 @@
 <template>
   <div class="question_user pt-3 m-3">
     <div class="question_user_image mb-2">
-      <img :src="user.profile_image" alt="user profile image" />
+      <img
+        :src="user.profile_image"
+        data-test="question_user_image_value"
+        alt="user profile image"
+      />
     </div>
-    <div class="question_user_name mb-1">{{ user.display_name }}</div>
-    <div class="question_user_rep">Rep: {{ user.reputation }}</div>
+    <div class="question_user_name mb-1" data-test="question_user_name_value">
+      {{ user.display_name }}
+    </div>
+    <div class="question_user_rep" data-test="question_user_rep_value">
+      Rep: {{ user.reputation }}
+    </div>
   </div>
 </template>
 
