@@ -35,8 +35,8 @@ export default {
   align-items: center;
   width: 100%;
   &_image {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 9999px;
     text-align: center;
     overflow: hidden;
