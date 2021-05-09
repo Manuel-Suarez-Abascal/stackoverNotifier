@@ -34,6 +34,11 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    display: inline-block;
+  }
+
   &_image {
     width: 4rem;
     height: 4rem;
