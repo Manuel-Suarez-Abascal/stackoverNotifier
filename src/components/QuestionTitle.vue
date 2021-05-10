@@ -1,28 +1,31 @@
 <template>
   <div class="question_title p-5 pt-0 pb-3 pl-0 ml-5">
-    <div class="question_title_label pt-3 m-3" data-test="question_title">
-      Question:
-    </div>
+    <QuestionUser :user="question.owner" />
     <h2
       class="pt-1 m-3"
       data-test="question_title_value"
-      v-html="questionTitle"
+      v-html="question.title"
     ></h2>
   </div>
 </template>
 
 <script>
+import QuestionUser from "./QuestionUser";
+
 export default {
   name: "QuestionTitle",
+  props: {
+    question: {
+      type: Object,
+      required: true,
+      default: () => {},
+    },
+  },
+  components: {
+    QuestionUser,
+  },
   data() {
     return {};
-  },
-  props: {
-    questionTitle: {
-      type: String,
-      required: true,
-      default: "",
-    },
   },
 };
 </script>

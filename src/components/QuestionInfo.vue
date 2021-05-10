@@ -6,7 +6,7 @@
         :tag-name="this.tag"
       />
       <BaseForm @handleInputForm="updateTag($event)" />
-      <QuestionTitle :question-title="allQuestions[0].title" />
+      <QuestionTitle :question="allQuestions[0]" />
       <div class="question_details p-5 pt-0 pb-0">
         <BaseChip
           :class="['p-5', 'pl-0']"
