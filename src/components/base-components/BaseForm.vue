@@ -19,7 +19,7 @@ export default {
     };
   },
   methods: {
-    handleInput: function () {
+    handleInput() {
       this.$emit("handleInputForm", this.inputValue);
       this.inputValue = "";
     },
