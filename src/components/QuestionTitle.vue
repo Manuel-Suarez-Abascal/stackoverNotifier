@@ -35,8 +35,8 @@ export default {
   &_title {
     background: #fff;
     border-radius: 10px;
-    display: flex;
     color: #343a40;
+    display: flex;
     font-size: 1.3rem;
     font-weight: 900;
     max-width: 80%;
@@ -58,8 +58,8 @@ export default {
         display: flex;
         flex-direction: column;
         h2 {
-          text-align: center;
           margin-top: 0;
+          text-align: center;
         }
       }
     }
