@@ -1,5 +1,5 @@
 <template>
-  <div class="question_user pt-3 m-3">
+  <div class="question_user pt-3 m-4">
     <div class="question_user_image mb-2">
       <img
         :src="user.profile_image"
@@ -30,27 +30,28 @@ export default {
 
 <style scoped lang="scss">
 .question_user {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 100%;
-
-  @media only screen and (min-width: 768px) {
-    display: inline-block;
-  }
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-size: 1rem;
+  width: auto;
 
   &_image {
-    width: 4rem;
+    border-radius: 50%;
+    border: 2px solid #000000;
     height: 4rem;
-    border-radius: 9999px;
-    text-align: center;
     overflow: hidden;
-    border: 2px solid black;
+    width: 4rem;
     img {
-      width: 100%;
-      max-width: 100%;
       height: 100%;
+      max-width: 100%;
+      width: 100%;
     }
+  }
+
+  &_rep {
+    color: #808080;
   }
 }
 </style>
