@@ -32,9 +32,9 @@ export default {
 .question_user {
   align-items: center;
   display: flex;
-  text-align: center;
   flex-direction: column;
   font-size: 1rem;
+  text-align: center;
   width: auto;
 
   &_image {
