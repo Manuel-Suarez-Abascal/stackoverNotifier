@@ -44,7 +44,7 @@
           v-for="questionTags in allQuestions[0].tags.slice(1, 5)"
           :key="questionTags"
         >
-          <BaseTag :tag-name="questionTags" />
+          <BaseTag :tag-name="questionTags" :isLabelVisible="false" />
         </span>
       </div>
     </div>

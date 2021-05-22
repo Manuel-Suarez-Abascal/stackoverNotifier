@@ -66,6 +66,14 @@ describe("Fetch Questions from Stackoverflow", () => {
       });
   });
 
+  it("tag has right href pointing to tag's Stackoverflow page", () => {
+    cy.get('[data-test="tag_value"]').should(
+      "have.prop",
+      "href",
+      "https://stackoverflow.com/questions/tagged/javascript"
+    );
+  });
+
   it("input field loads & contains right placeholder value", () => {
     cy.get('[data-test="question_input"]')
       .should("exist")
