@@ -11,7 +11,7 @@
     "cypress:all": "npx cypress run --record --key 49e0281d-7165-4de8-8c1f-c3b6b61dce0e"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "core-js": "^3.10.1",
     "vue": "^2.6.12"
   },
