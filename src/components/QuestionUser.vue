@@ -1,7 +1,11 @@
 <template>
   <div class="question_user pt-3 m-4">
     <div class="question_user_image mb-2">
-      <a :href="user.link" target="_blank">
+      <a
+        :href="user.link"
+        data-test="question_user_profile_link"
+        target="_blank"
+      >
         <img
           :src="user.profile_image"
           alt="user profile image"

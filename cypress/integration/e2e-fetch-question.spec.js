@@ -14,10 +14,14 @@ describe("Fetch Questions from Stackoverflow", () => {
       const { title, is_answered, view_count, score, owner } = questionObject;
 
       cy.log(`Asserting the fetched response object:
-                Title: ${title},
                 Answered: ${is_answered},
-                Views: ${view_count},
+                Owner: ${owner}
+                Owner reputation: ${owner.reputation}
+                Owner profile image: ${owner.profile_image}
+                Owner link: ${owner.link}
                 Score: ${score}
+                Title: ${title},
+                Views: ${view_count},
             `);
 
       cy.get('[data-test="question_title_value"]').should(
@@ -48,6 +52,10 @@ describe("Fetch Questions from Stackoverflow", () => {
       cy.get('[data-test="question_user_image_value"]')
         .invoke("attr", "src")
         .should("contain", `${owner.profile_image}`);
+
+      cy.get('[data-test="question_user_profile_link"]')
+        .invoke("attr", "href")
+        .should("contain", `${owner.link}`);
 
       cy.get('[data-test="question_user_rep_value"]').should(
         "contain",
