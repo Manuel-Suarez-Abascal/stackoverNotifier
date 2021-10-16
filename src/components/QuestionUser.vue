@@ -1,11 +1,13 @@
 <template>
   <div class="question_user pt-3 m-4">
     <div class="question_user_image mb-2">
-      <img
-        :src="user.profile_image"
-        data-test="question_user_image_value"
-        alt="user profile image"
-      />
+      <a :href="user.link" target="_blank">
+        <img
+          :src="user.profile_image"
+          alt="user profile image"
+          data-test="question_user_image_value"
+        />
+      </a>
     </div>
     <div class="question_user_name mb-1" data-test="question_user_name_value">
       {{ user.display_name }}
