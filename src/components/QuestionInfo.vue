@@ -123,7 +123,7 @@ export default {
             this.notificationSound.play();
             this.notifySlack({
               webhookUrl:
-                "https://hooks.slack.com/services/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",
+                "https://hooks.slack.com/services/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",
               text: `<!here> ${this.lastQuestion} Link: ${this.allQuestions[0].link}`,
             });
           }
