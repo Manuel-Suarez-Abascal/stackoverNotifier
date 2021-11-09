@@ -1,9 +1,14 @@
 <template>
   <div :class="this.classProps">
-    <span v-if="this.hasLabel">Tag:</span>
-    <span class="tag_value px-3 py-1 ml-2" data-test="tag_value">
+    <span class="tag_label mr-1" v-if="isLabelVisible">Current Tag:</span>
+    <a
+      class="tag_value px-3 py-1 ml-2"
+      data-test="tag_value"
+      :href="tagUrl"
+      target="_blank"
+    >
       {{ tagName }}
-    </span>
+    </a>
   </div>
 </template>
 
@@ -16,9 +21,9 @@ export default {
       required: false,
       default: "",
     },
-    hasLabel: {
+    isLabelVisible: {
       type: Boolean,
-      required: true,
+      required: false,
       default: true,
     },
     tagLabel: {
@@ -32,14 +37,26 @@ export default {
       default: "Default",
     },
   },
+  data() {
+    return {
+      tagUrl: `https://stackoverflow.com/questions/tagged/${this.tagName}`,
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
-.tag_value {
-  background: #808080;
-  border-radius: 10px;
-  color: rgb(216, 216, 216);
-  text-align: center;
+.tag {
+  &_value {
+    background: #808080;
+    border-radius: 10px;
+    color: #d8d8d8;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+      color: #959494;
+      transition: all 0.2s ease-in-out;
+    }
+  }
 }
 </style>

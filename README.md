@@ -32,6 +32,7 @@ It'll open a local development environment server at ```http://localhost:8080/``
 
 ### Chrome Notification Settings
 
+- Make sure to add [this Chrome's extension](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc) & have it `on` to avoid [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) issues.
 - Make sure to have your **[Chrome's notification enabled](https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DDesktop&hl=en)**.
 
 ### Compiles and hot-reloads for development

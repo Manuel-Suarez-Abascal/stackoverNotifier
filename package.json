@@ -11,7 +11,7 @@
     "cypress:all": "npx cypress run --record --key 49e0281d-7165-4de8-8c1f-c3b6b61dce0e"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "core-js": "^3.10.1",
     "vue": "^2.6.12"
   },
@@ -21,7 +21,7 @@
     "@vue/cli-service": "^4.5.12",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "cypress": "^7.1.0",
+    "cypress": "^8.5.0",
     "eslint": "^7.24.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.9.0",
