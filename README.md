@@ -12,8 +12,6 @@ Make sure to have all these dependencies installed in your local machine:
 
 - [Node.js](https://nodejs.org/en/) - v12.18.4
 - [NPM](https://www.npmjs.com/) - v6.10 (comes installed with `Node.js`)
-- [Vue CLI](https://cli.vuejs.org/guide/installation.html) - v5.0.8
-
 
 ## Install Modules
 
