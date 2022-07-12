@@ -26,7 +26,7 @@ npm install
 
 - After all modules are installed, run the command:
 ```
-npm run serve
+npm run dev
 ```
 It'll open a local development environment server at ```http://localhost:8080/```
 
@@ -48,6 +48,11 @@ npm run build
 ### Run your tests
 ```
 npm run test
+```
+
+### Preview production build
+```
+npm run serve
 ```
 
 ### Lints and fixes files
