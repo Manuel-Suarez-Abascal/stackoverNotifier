@@ -52,11 +52,11 @@
 </template>
 
 <script>
-import BaseChip from "./base-components/BaseChip";
-import BaseForm from "./base-components/BaseForm";
-import BaseLink from "./base-components/BaseLink";
-import BaseTag from "./base-components/BaseTag";
-import QuestionTitle from "./QuestionTitle";
+import BaseChip from "./base-components/BaseChip.vue";
+import BaseForm from "./base-components/BaseForm.vue";
+import BaseLink from "./base-components/BaseLink.vue";
+import BaseTag from "./base-components/BaseTag.vue";
+import QuestionTitle from "./QuestionTitle.vue";
 import notificationAudio from "../assets/notification/notification-audio.mp3";
 
 export default {

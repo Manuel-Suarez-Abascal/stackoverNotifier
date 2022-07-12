@@ -12,8 +12,6 @@ Make sure to have all these dependencies installed in your local machine:
 
 - [Node.js](https://nodejs.org/en/) - v12.18.4
 - [NPM](https://www.npmjs.com/) - v6.10 (comes installed with `Node.js`)
-- [Vue CLI](https://cli.vuejs.org/guide/installation.html) - v5.0.8
-
 
 ## Install Modules
 
@@ -26,7 +24,7 @@ npm install
 
 - After all modules are installed, run the command:
 ```
-npm run serve
+npm run dev
 ```
 It'll open a local development environment server at ```http://localhost:8080/```
 
@@ -48,6 +46,11 @@ npm run build
 ### Run your tests
 ```
 npm run test
+```
+
+### Preview production build
+```
+npm run serve
 ```
 
 ### Lints and fixes files

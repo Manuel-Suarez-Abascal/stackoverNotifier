@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped >
 .chip {
   background: #343a40;
   border-radius: 50%;
