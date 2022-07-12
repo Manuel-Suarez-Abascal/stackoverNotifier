@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import QuestionUser from "./QuestionUser";
+import QuestionUser from "./QuestionUser.vue";
 
 export default {
   name: "QuestionTitle",

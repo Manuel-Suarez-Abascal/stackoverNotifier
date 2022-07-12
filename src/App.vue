@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 @import "./styles/layout-utilities.css";
 
 * {

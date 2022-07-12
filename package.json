@@ -3,31 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "lint:check": "vue-cli-service lint --no-fix --max-warnings 0",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "cypress:open": "npx cypress open",
     "cypress:all": "npx cypress run --record --key 49e0281d-7165-4de8-8c1f-c3b6b61dce0e"
   },
   "dependencies": {
     "axios": "^0.21.2",
-    "core-js": "^3.10.1",
-    "vue": "^2.7.4"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
+    "@vitejs/plugin-vue": "^1.6.1",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "cypress": "^9.1.1",
-    "eslint": "^7.24.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.9.0",
-    "node-sass": "^7.0.1",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^8.0.1",
     "prettier": "^2.2.1",
-    "sass-loader": "^10.1.1",
-    "vue-template-compiler": "^2.6.12"
+    "sass": "^1.26.5",
+    "vite": "^2.5.4",
+    "vite-plugin-vue2": "^1.9.0"
   }
 }
