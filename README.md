@@ -16,6 +16,7 @@ Make sure to have all these dependencies installed in your local machine:
 ## Install Modules
 
 - Go to the project's root folder & run the following command:
+
 ```
 npm install
 ```
@@ -23,10 +24,12 @@ npm install
 ### Run The Project For Local Development
 
 - After all modules are installed, run the command:
+
 ```
 npm run dev
 ```
-It'll open a local development environment server at ```http://localhost:8080/```
+
+It'll open a local development environment server at `http://localhost:8080/`
 
 ### Chrome Notification Settings
 
@@ -34,26 +37,31 @@ It'll open a local development environment server at ```http://localhost:8080/``
 - Make sure to have your **[Chrome's notification enabled](https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DDesktop&hl=en)**.
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Run your tests
+
 ```
 npm run test
 ```
 
 ### Preview production build
+
 ```
 npm run serve
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
@@ -65,4 +73,5 @@ npm run cypress:open
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

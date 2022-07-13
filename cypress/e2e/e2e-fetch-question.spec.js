@@ -4,8 +4,7 @@ describe("Fetch Questions from Stackoverflow", () => {
     cy.visit("/");
 
     cy.request({
-      url:
-        "https://api.stackexchange.com/2.2/questions?order=desc&sort=creation&tagged=javascript&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((",
+      url: "https://api.stackexchange.com/2.2/questions?order=desc&sort=creation&tagged=javascript&site=stackoverflow&key=sRtlAYT6ufs8EkbTzH3hlQ((",
     }).then((res) => {
       expect(res.status).to.be.eq(200);
 

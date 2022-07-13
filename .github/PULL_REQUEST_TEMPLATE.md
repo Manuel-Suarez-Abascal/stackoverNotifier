@@ -24,7 +24,6 @@ Please delete options that are not relevant.
 - [ ] Documentation update
 - [ ] Migration & dependencies update
 
-
 # Checklist:
 
 - [ ] My code follows the style guidelines of this project (ESLint + Prettier)

@@ -11,5 +11,5 @@ jobs:
       - name: Installing node_modules...
         run: npm ci
 
-      - name: Running ESLint check...
-        run: npm run lint:check
+      - name: Running ESLint & Prettier
+        run: npm run format
