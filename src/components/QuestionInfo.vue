@@ -1,5 +1,5 @@
 <template>
-  <div class="question">
+  <div v-if="allQuestions[0]" class="question">
     <div class="question_card container">
       <BaseTag
         :class="['tag', 'p-5', 'pb-0', 'pl-0', 'ml-5']"
