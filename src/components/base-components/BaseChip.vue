@@ -1,6 +1,6 @@
 <template>
   <div :class="[this.classProps]">
-    <div class="chip label p-3 mb-4" :data-test="this.cypressSelectorProps">
+    <div class="chip label p-3 mb-4">
       <p class="chip-info">{{ displayInfo }}</p>
     </div>
     <label class="label" :data-test="this.labelMessage.toLowerCase()">
@@ -18,11 +18,6 @@ export default {
       required: false,
       default: "",
     },
-    cypressSelectorProps: {
-      type: String,
-      required: true,
-      default: "",
-    },
     displayInfo: {
       type: [String, Number, Boolean],
       required: true,
@@ -37,7 +32,7 @@ export default {
 };
 </script>
 
-<style scoped >
+<style scoped>
 .chip {
   background: #343a40;
   border-radius: 50%;
