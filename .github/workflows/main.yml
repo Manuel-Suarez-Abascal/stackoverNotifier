@@ -13,3 +13,6 @@ jobs:
 
       - name: Running ESLint & Prettier
         run: npm run format
+
+      - name: Running Cypress E2E test
+        run: npm run cypress:all
